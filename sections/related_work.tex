@@ -1,0 +1,33 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Generative engine optimization} Generative engine optimization was introduced for text-only generative search engines~\cite{aggarwal2023geo}, where small content edits change which sources a system cites, sharing roots with SEO and adversarial information retrieval~\cite{papernot2017transferable}. Visual GEO extends it to product retrieval ranked by a multimodal embedding rather than a generative LM~\cite{radford2021clip,jia2021scaling}. Our CoGEO attack combines a VLM-derived anchor, a Sobel mask, a differentiable JPEG layer~\cite{shin2017diffjpeg}, and an MI-FGSM loop~\cite{dong2018mifgsm}; it is one of four compared methods, with a VLM captioner~\cite{li2022blip,wang2024qwen2vl} supplying the decoupled anchor text.
+
+\paragraph{CLIP-targeted adversarial attacks} Universal adversarial patches~\cite{zhou2023advclip,moosavidezfooli2017uap} on a CLIP image encoder shift retrieval across diverse inputs, and a complementary family attacks both image and text branches with alternating updates~\cite{zhang2022coattack}; both are query-agnostic, matching the seller-side regime where uploads outpace per-image budgets. The per-image branch descends from PGD~\cite{madry2018pgd} and FGSM~\cite{goodfellow2015fgsm} with momentum~\cite{dong2018mifgsm}, and recent work maps the vulnerability surface of contrastive pretraining~\cite{ilyas2019features,carlini2017cw} and robust-CLIP defenses~\cite{schlarmann2024robustclip}. What is missing is evaluation under held-out human relevance: prior work scores against queries derived from the optimization signal itself, never a multi-cohort benchmark with a published anchor$\perp$query invariant.
+
+\paragraph{Transfer-based attacks and cross-encoder consensus} A long line improves the black-box transferability of per-image attacks through input-diversity~\cite{xie2019dim} and scale-invariant~\cite{lin2020sim} transformations, momentum~\cite{dong2018mifgsm}, and optimization against an ensemble of surrogate models~\cite{papernot2017transferable}, so a perturbation crafted on accessible models survives on an unseen one. These techniques were developed for image classification and still presume a target label or a query/caption at attack time~\cite{zhang2022coattack}. AE-CoGEO (\S\ref{sec:method:aecogeo}) is, to our knowledge, the first to bring ensemble-consensus transfer to visual GEO under the query-free, anchor-decoupled constraint, measuring rank-lift on held-out encoders that never entered the optimization set (\S\ref{sec:analysis:transfer}). Table~\ref{tab:novelty} positions it among these families.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\caption{Where AE-CoGEO sits among adversarial attacks on the four axes visual GEO imposes. \textbf{QF}: query/caption-free attack; \textbf{HE}: scored under held-out human relevance (anchor$\perp$query); \textbf{XE}: transfers to an unseen encoder via source-set consensus; \textbf{VG}: optimizes retrieval rank, not classification. AE-CoGEO uniquely satisfies all four; \textbf{HE} holds only for our protocol.}
+\label{tab:novelty}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Attack & QF & HE & XE & VG \\
+\midrule
+PGD / FGSM~\cite{madry2018pgd,goodfellow2015fgsm} & \checkmark & $\times$ & $\times$ & $\times$ \\
+MI/DI/SI-FGSM~\cite{dong2018mifgsm,xie2019dim,lin2020sim} & \checkmark & $\times$ & $\times$ & $\times$ \\
+Ensemble transfer~\cite{papernot2017transferable} & \checkmark & $\times$ & \checkmark & $\times$ \\
+AdvCLIP patch~\cite{zhou2023advclip} & \checkmark & $\times$ & $\times$ & \checkmark \\
+Co-Attack~\cite{zhang2022coattack} & $\times$ & $\times$ & $\times$ & \checkmark \\
+CoGEO (ours) & \checkmark & \checkmark & $\times$ & \checkmark \\
+\textbf{AE-CoGEO (ours)} & \checkmark & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Held-out relevance evaluation} The Amazon ESCI dataset~\cite{reddy2022esci} provides $(q, x_p, \ell)$ triples with four-class human labels (Exact, Substitute, Complement, Irrelevant), and to our knowledge has not previously been used to evaluate adversarial image perturbations; we add a Food-101~\cite{bossard2014food101} consistency check. Because ESCI queries come from real shoppers and labels are independent of any retriever's geometry, observed rank-lift measures something other than the gradient that produced it, placing the protocol in the held-out tradition of BEIR~\cite{thakur2021beir} and MTEB~\cite{muennighoff2023mteb} that rejects self-loop similarity~\cite{schlarmann2024robustclip,mao2023zsar}. Per-cohort decomposition is a first-class output, not a post-hoc breakdown.
+
+\paragraph{Stealth and replication} SSIM~\cite{wang2004ssim} is the canonical perceptual-quality measure, but visual-GEO stealth claims are often reported at the optimization resolution ($800{\times}800$) rather than the $224{\times}224$ input the retriever consumes --- a discrepancy not previously characterized across attack families on one benchmark. We report the four-method stealth--lift Pareto at native input size and replicate across six CLIP backbones~\cite{radford2021clip,cherti2023reproducible,fang2023eva02,zhai2023siglip}, separating embedding-specific dominance from dominance over per-image gradient attacks across CLIP-style embeddings.

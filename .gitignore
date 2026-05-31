@@ -1,0 +1,7 @@
+main.aux
+main.log
+main.out
+main.blg
+main.synctex.gz
+*.pyc
+__pycache__/

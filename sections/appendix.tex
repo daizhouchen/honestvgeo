@@ -1,0 +1,43 @@
+\section{Reproducibility Details}
+\label{app:repro}
+
+This appendix lists the implementation parameters and dataset assumptions needed to reproduce the four-way evaluation reported in the main paper. None of the values affect the qualitative conclusions; they are recorded here so that an independent reader can run the same comparison. Additional empirical replications (cross-dataset on Food-101, image-budget regime contrast, no-op gate sensitivity, perturbation-budget sweep, a measured cohort-aware detector, a fifth diffusion-prior attack family, and an oracle-bounded cohort-aware purification allocation) are available in the released \textsc{HonestVGEO} artifact.
+
+\subsection{ESCI sampling}
+
+We use the \texttt{tasksource/esci} pre-joined release of the Amazon ESCI dataset~\cite{reddy2022esci}, US locale, with the small-version flag set, and label-balance the sample across the four relevance classes E, S, C, I. The target sizes are $(125, 125, 185, 125)$, chosen to match the natural imbalance of the small-version subset on Complement pairs. ASIN-to-image resolution uses the public Amazon CDN with retry and on-disk cache; the cache hit rate after threefold over-sampling is approximately $41\%$, which yields $491$ unique ASINs in the final manifest. The random seed for sampling is fixed at $42$.
+
+\subsection{Retriever and attack hyperparameters}
+
+The retriever is \texttt{openai/clip-vit-large-patch14} loaded through the Hugging Face \texttt{transformers} library. CoGEO and PGD-bare share the optimization budget $\eps = 16/255$ in $L_\infty$, the step size $\alpha = 4/255$, and $T = 200$ iterations. CoGEO uses the MI-FGSM momentum coefficient $1.0$, a hard Sobel-edge mask retaining the top-$40\%$ gradient pixels ($60$th-percentile threshold, Eq.~\ref{eq:sobel_mask}), and a differentiable JPEG layer at quality $75$. PGD-bare strips the mask, the JPEG layer, and the momentum, leaving only the projected gradient ascent toward the product-title anchor.
+
+AdvCLIP trains its universal patch over $30$ epochs at batch size $16$ and learning rate $0.5/255$ per epoch, with the last-epoch checkpoint used at evaluation. Co-Attack performs $200$ alternating iterations at image $\eps = 16/255$ and text $\eps_v = 0.1$, with the image branch implemented as $L_\infty$ PGD and the text branch as projected $L_2$ on a continuous text-token embedding.
+
+\subsection{Significance protocol details}
+
+Paired Wilcoxon signed-rank tests are computed on the joint $560$-pair sample for the four-way intersection table and on the within-cohort sub-sample for the per-cohort tests. One-sided $p$-values are reported when the comparison is directional. Bootstrap $95\%$ confidence intervals on mean rank-lift differences are computed with $1000$ resamples of the same paired sample. The six pairwise comparisons in the $4 \times 4$ Wilcoxon matrix are reported without multiple-comparison correction, since the strongest individual $p$-value of $3.5 \times 10^{-30}$ would survive any standard correction at the comparison count of $6$.
+
+\begin{table}[t]
+\centering
+\caption{Paired Wilcoxon signed-rank $p$-values (one-sided, row $>$ column) on rank-lift, $n=560$, referenced from the main-paper analysis. NS marks the only non-significant directional comparison ($p \geq 0.05$).}
+\label{sm:tab:wilcoxon}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+& CoGEO & PGD-bare & AdvCLIP & Co-Attack \\
+\midrule
+CoGEO     & ---       & $1.1{\times}10^{-4}$ & $3.5{\times}10^{-30}$ & $1.3{\times}10^{-8}$ \\
+PGD-bare  & ---       & ---                  & $6.7{\times}10^{-8}$  & $2.4{\times}10^{-6}$ \\
+AdvCLIP   & ---       & ---                  & ---                   & \emph{NS} ($\approx$1.0) \\
+Co-Attack & ---       & ---                  & $4.8{\times}10^{-7}$  & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Hardware footprint}
+
+All four attack passes ran on $2 \times$ NVIDIA RTX 4090 GPUs in parallel. Per $491$-image manifest, AdvCLIP took $\approx 200$\,s ($30$ epochs of universal-patch training), Co-Attack $\approx 28$\,min ($200$ alternating iterations), and CoGEO and PGD-bare $\approx 25$\,min each (all at $T=200$); every evaluation pass (rank-lift, top-K replacement, SSIM, $\Delta_{\mathrm{clip\_sim}}$) ran in under $5$ minutes per method on a single GPU.
+
+\subsection{Code and data availability}
+
+We bundle \textsc{HonestVGEO}, an anonymized, reviewer-runnable release (browsable at \url{https://anonymous.4open.science/r/honestvgeo-F663}), with this submission: the $491$-ASIN ESCI manifest annotated with per-example human relevance cohorts (E/S/C/I), a standalone no-model admissibility verifier ($L_\infty$-budget, image-integrity, and cohort-coverage checks), a pluggable reference rank-lift scorer that accepts either a CLIP-style dual encoder or a fused-encoder reranker, the reference anchor$\perp$query invariant verifier described in the main paper's method section, reference implementations of the protocol and of both contributed attacks (CoGEO and AE-CoGEO), and reference result tables that seed a public leaderboard. Following the ESCI release, we distribute ASIN identifiers rather than the product images themselves; each clean image is fetched per ASIN as a lossless PNG. A publicly hosted copy with a leaderboard endpoint follows at camera-ready under an open license consistent with the ESCI dataset terms.

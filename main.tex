@@ -1,0 +1,70 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\providecommand{\Description}[1]{}
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcommand{\eps}{\varepsilon}
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+
+\title{Recalibrating Visual GEO: An Anchor-Decoupled Evaluation Protocol and a Cross-Encoder Transfer Probe on ESCI}
+
+\author{\IEEEauthorblockN{Anonymous Author(s)}
+\IEEEauthorblockA{Submission under triple-blind review\\
+ICDM 2026}
+\thanks{Code, the ESCI manifest, the no-model admissibility verifier, the reference rank-lift scorer, reference implementations of both attacks, reference result tables, and the full reproduction configuration (sampling, seeds, hyper-parameters, hardware) are released anonymously as \textsc{HonestVGEO}: \url{https://anonymous.4open.science/r/honestvgeo-F663}.}}
+
+\maketitle
+
+% tighten float-to-text and displayed-equation spacing to meet the page budget (content-preserving)
+\setlength{\textfloatsep}{3.6pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{3.6pt plus 2pt minus 2pt}
+\setlength{\floatsep}{4pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\abovedisplayshortskip}{2pt plus 1pt}
+\setlength{\belowdisplayshortskip}{2pt plus 1pt}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+visual retrieval, CLIP, adversarial perturbation, generative engine optimization, Amazon ESCI, multimodal evaluation
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/analysis}
+\input{sections/limitations}
+\input{sections/conclusion}
+
+% compress reference-list spacing the standard way (IEEEbibitemsep is not a length register in this IEEEtran build and prints stray text)
+\let\oldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\itemsep}{-0.55ex}%
+  \setlength{\parsep}{0pt}}
+{\footnotesize
+\bibliographystyle{IEEEtran}
+\bibliography{references}}
+
+\end{document}

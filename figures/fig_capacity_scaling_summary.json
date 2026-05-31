@@ -1,0 +1,31 @@
+{
+  "source": "Table tab:cross-backbone (analysis.tex), CoGEO white-box rank-lift, eps=16/255",
+  "laion2b_controlled_triple": {
+    "params_M": [
+      88.0,
+      304.0,
+      632.0
+    ],
+    "rank_lift": [
+      18.07,
+      5.18,
+      4.61
+    ],
+    "spearman_rho": -1.0,
+    "log_linear_fit_slope_intercept": [
+      -16.5885,
+      49.2544
+    ],
+    "contraction_B32_to_H14": 3.92
+  },
+  "corpus_effect_at_ViT_L14": {
+    "openai_wit400m": 19.86,
+    "laion2b": 5.18,
+    "relative_drop": 0.7392
+  },
+  "all6_spearman": {
+    "rho": -0.6375,
+    "p": 0.1733,
+    "note": "NOT clean across corpora; motivates the corpus-controlled framing"
+  }
+}

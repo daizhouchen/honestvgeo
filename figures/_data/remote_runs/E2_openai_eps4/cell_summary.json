@@ -1,0 +1,73 @@
+{
+  "run_root": "/data2/jiangjiaqi/zcdai/cogeo-icmr/n3/runs/E2_openai_eps4",
+  "methods": {
+    "cogeo": {
+      "attack_summary": {
+        "method": "cogeo",
+        "anchor_mode": "product-title",
+        "eps": 4,
+        "alpha": 1,
+        "iters": 200,
+        "n_images": 491,
+        "n_attacked": 491,
+        "n_skipped": 0,
+        "wall_seconds": 2542.56,
+        "out_img_dir": "/data2/jiangjiaqi/zcdai/cogeo-icmr/n3/runs/E2_openai_eps4/cogeo/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "/data2/jiangjiaqi/zcdai/cogeo-icmr/n3/data/esci500_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "cogeo",
+        "n_pairs": 500,
+        "delta_held_out_mean": 0.020488712936639786,
+        "delta_held_out_ci95_half": 0.002171233603381478,
+        "rank_lift_mean": 8.496,
+        "rank_lift_median": 0.0,
+        "i_label_top3_promotion_rate_orig": 0.102,
+        "i_label_top3_promotion_rate_adv": 0.118,
+        "per_label_delta_mean": {
+          "E": 0.02002622000873089,
+          "S": 0.023052332922816277,
+          "C": 0.02455565333366394,
+          "I": 0.014320643618702888
+        }
+      }
+    },
+    "pgd_bare": {
+      "attack_summary": {
+        "method": "pgd_bare",
+        "anchor_mode": "product-title",
+        "eps": 4,
+        "alpha": 1,
+        "iters": 200,
+        "n_images": 491,
+        "n_attacked": 491,
+        "n_skipped": 0,
+        "wall_seconds": 2614.21,
+        "out_img_dir": "/data2/jiangjiaqi/zcdai/cogeo-icmr/n3/runs/E2_openai_eps4/pgd_bare/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "/data2/jiangjiaqi/zcdai/cogeo-icmr/n3/data/esci500_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "pgd_bare",
+        "n_pairs": 500,
+        "delta_held_out_mean": 0.022132782265543938,
+        "delta_held_out_ci95_half": 0.00231035613791751,
+        "rank_lift_mean": 9.14,
+        "rank_lift_median": 0.0,
+        "i_label_top3_promotion_rate_orig": 0.102,
+        "i_label_top3_promotion_rate_adv": 0.126,
+        "per_label_delta_mean": {
+          "E": 0.022006278857588768,
+          "S": 0.026487763971090317,
+          "C": 0.024895314127206802,
+          "I": 0.015141776762902737
+        }
+      }
+    }
+  }
+}
