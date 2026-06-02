@@ -121,6 +121,16 @@ for (n, p, c, rl) in BACKBONES:
     ax.annotate(n, xy=(p, rl), xytext=(lx, ly), fontsize=5.4, color="#444",
                 ha=lha, va=lva)
 
+# corpus effect at fixed ViT-L/14 (304M): draw the OpenAI-WIT400M -> LAION-2B drop
+# as a vertical two-headed arrow between the two 304M points (19.86 -> 5.18, -74%).
+x_L = 304
+ax.annotate("", xy=(x_L, rl_laion_L), xytext=(x_L, rl_openai_L),
+            arrowprops=dict(arrowstyle="<->", color="#9B5F5C", lw=1.1,
+                            shrinkA=3, shrinkB=3))
+ax.text(x_L * 1.12, (rl_openai_L + rl_laion_L) / 2,
+        f"$-{corpus_drop*100:.0f}\\%$\n(fixed ViT-L/14)", fontsize=5.4,
+        color="#9B5F5C", ha="left", va="center", style="italic")
+
 ax.set_xscale("log")
 ax.set_xticks([88, 304, 632])
 ax.set_xticklabels(["88", "304", "632"])

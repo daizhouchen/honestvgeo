@@ -32,7 +32,7 @@ plt.rcParams.update(
     {
         "font.family": "DejaVu Sans",
         "font.size": 8,
-        "axes.titlesize": 8.6,
+        "axes.titlesize": 8.5,
         "axes.labelsize": 8,
         "axes.linewidth": 0.8,
         "axes.edgecolor": "#444",
@@ -85,7 +85,7 @@ axa.set_xlim(-0.5, 20.0)
 axa.set_ylim(-1.0, len(labels_a) - 0.4)
 axa.set_xlabel("Mean transfer rank-lift")
 axa.grid(axis="x", linestyle=":", alpha=0.4)
-axa.set_title("(a) Transfer below ceiling ($n{=}498$)", fontsize=8.2)
+axa.set_title("(a) Transfer below ceiling ($n{=}498$)", fontsize=9.0)
 
 # ============================ (b) layered defense ============================
 # before -> after dumbbells (rank-lift)
@@ -114,7 +114,9 @@ axb.axvline(CEIL, color="#8A6A6A", linewidth=1.2, linestyle="--", zorder=2)
 axb.set_yticks(yb)
 axb.set_yticklabels([r[0] for r in rows_b], fontsize=6.8)
 axb.set_xlim(-0.5, 21.0)
-axb.set_ylim(-1.0, len(rows_b) - 0.4)
+# extra room below the CAB row so the detector caption sits on its own line,
+# well clear of the CAB dumbbell markers above it
+axb.set_ylim(-1.7, len(rows_b) - 0.4)
 axb.set_xlabel("Mean rank-lift")
 axb.grid(axis="x", linestyle=":", alpha=0.4)
 axb.legend(handles=[
@@ -126,10 +128,11 @@ axb.legend(handles=[
            markeredgecolor="#333", markersize=6, label="CAB attacker"),
 ], loc="upper center", bbox_to_anchor=(0.5, -0.46), ncol=3, fontsize=6.2,
    handletextpad=0.3, columnspacing=2.0, frameon=False)
-axb.text(0.02, 0.05, "Detector AUROC $\\geq$0.99 @5% FPR",
-         transform=axb.transAxes, fontsize=6.2, color="#5C3A3A", style="italic",
-         ha="left", va="bottom")
-axb.set_title("(b) Layered defense ($n{=}500$)", fontsize=8.2)
+# detector caption on its own dedicated line well below the CAB dumbbell
+# (data y=-1.0), left-aligned from x=0 -- clear of all markers and the x-axis
+axb.text(0.0, -1.0, "Detector AUROC $\\geq$0.99 @ 5% FPR",
+         fontsize=6.2, color="#5C3A3A", style="italic", ha="left", va="center")
+axb.set_title("(b) Layered defense ($n{=}500$)", fontsize=9.0)
 
 # ============================ (c) 1430-pair scale-up replication ============================
 COH = ["E", "S", "C", "I"]
@@ -150,9 +153,9 @@ axc.legend(loc="upper left", fontsize=6.6, handlelength=1.3, borderaxespad=0.3)
 axc.text(0.97, 0.06, "overall $+7.89$ (95% CI $[2.0,13.6]$)",
          transform=axc.transAxes, ha="right", va="bottom", fontsize=6.2,
          color="#5C3A3A", style="italic")
-axc.set_title("(c) Scale-up (1,430 pairs)", fontsize=8.2)
+axc.set_title("(c) Scale-up (1,430 pairs)", fontsize=9.0)
 
-fig.subplots_adjust(top=0.955, bottom=0.075, left=0.215, right=0.965, hspace=1.25)
+fig.subplots_adjust(top=0.955, bottom=0.075, left=0.265, right=0.945, hspace=1.25)
 fig.savefig(os.path.join(HERE, "fig_bounded_defense.pdf"))
 fig.savefig(os.path.join(HERE, "fig_bounded_defense.png"), dpi=185)
 plt.close(fig)

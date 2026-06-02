@@ -19,7 +19,7 @@ plt.rcParams.update(
     {
         "font.family": "DejaVu Sans",
         "font.size": 10,
-        "axes.titlesize": 11,
+        "axes.titlesize": 16,
         "axes.labelsize": 10,
         "axes.linewidth": 0.8,
         "axes.edgecolor": "#444",

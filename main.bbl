@@ -56,9 +56,6 @@ Y.~Fang, Q.~Sun, X.~Wang, T.~Huang, X.~Wang, and Y.~Cao, ``{EVA-02}: A visual re
 \bibitem{zhai2023siglip}
 X.~Zhai, B.~Mustafa, A.~Kolesnikov, and L.~Beyer, ``Sigmoid loss for language image pre-training,'' in \emph{Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, 2023.
 
-\bibitem{papernot2017transferable}
-N.~Papernot, P.~McDaniel, I.~Goodfellow, S.~Jha, Z.~B. Celik, and A.~Swami, ``Practical black-box attacks against machine learning,'' in \emph{Proceedings of the ACM Asia Conference on Computer and Communications Security}, 2017, pp. 506--519.
-
 \bibitem{jia2021scaling}
 C.~Jia, Y.~Yang, Y.~Xia, Y.-T. Chen, Z.~Parekh, H.~Pham, Q.~V. Le, Y.-H. Sung, Z.~Li, and T.~Duerig, ``Scaling up visual and vision-language representation learning with noisy text supervision,'' in \emph{Proceedings of the 38th International Conference on Machine Learning (ICML)}, 2021, pp. 4904--4916.
 
@@ -91,6 +88,9 @@ C.~Xie, Z.~Zhang, Y.~Zhou, S.~Bai, J.~Wang, Z.~Ren, and A.~L. Yuille, ``Improvin
 
 \bibitem{lin2020sim}
 J.~Lin, C.~Song, K.~He, L.~Wang, and J.~E. Hopcroft, ``Nesterov accelerated gradient and scale invariance for adversarial attacks,'' in \emph{International Conference on Learning Representations (ICLR)}, 2020.
+
+\bibitem{papernot2017transferable}
+N.~Papernot, P.~McDaniel, I.~Goodfellow, S.~Jha, Z.~B. Celik, and A.~Swami, ``Practical black-box attacks against machine learning,'' in \emph{Proceedings of the ACM Asia Conference on Computer and Communications Security}, 2017, pp. 506--519.
 
 \bibitem{bossard2014food101}
 L.~Bossard, M.~Guillaumin, and L.~Van~Gool, ``Food-101 -- mining discriminative components with random forests,'' in \emph{Proceedings of the European Conference on Computer Vision (ECCV)}, 2014.

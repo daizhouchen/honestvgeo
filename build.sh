@@ -3,7 +3,7 @@
 # references.bib is the source of truth; bibtex regenerates main.bbl each build.
 # Usage: bash build.sh   -> main.pdf + prints page count (ICDM hard limit: 10) + warnings.
 set -e
-# ensure pdflatex+bibtex are on PATH (e.g. TinyTeX or TeX Live)
+export PATH=${HOME}/.TinyTeX/bin/x86_64-linux:$PATH
 cd "$(dirname "$0")"
 pdflatex -interaction=nonstopmode -halt-on-error main.tex >/tmp/icdm_b1.log 2>&1 || { echo "PASS1 FAILED"; tail -25 /tmp/icdm_b1.log; exit 1; }
 bibtex main >/tmp/icdm_bib.log 2>&1 || true

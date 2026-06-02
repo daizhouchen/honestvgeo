@@ -4,8 +4,8 @@
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/fig_framework.pdf}
-\caption{Anchor-decoupled evaluation protocol with a cross-encoder transfer probe, instantiated for CoGEO. \textbf{Stage~1} precomputes the seller anchor $v_{\mathrm{anchor}}{=}E_T(t_p^{\star})$ from the product title and a Sobel-edge mask $M_E$ (top-$40\%$ gradient pixels); $v_{\mathrm{anchor}}$ depends on the product image alone, never on a shopper query. \textbf{Stage~2} runs a five-step inner loop (differentiable JPEG $Q{=}75$, frozen image encoding, anchor-alignment cosine loss, MI-FGSM momentum, masked $\ell_\infty$ projection) for $K{=}200$ at $\varepsilon{=}16/255$, shared by PGD-bare, AdvCLIP and Co-Attack. Two orthogonal axes, not competing attacks: \emph{Axis~A} optimizes against a single white-box encoder; \emph{Axis~B} (AE-CoGEO) against a four-source consensus loss $L_{\mathrm{ens}}{=}-\tfrac{1}{|\mathcal{S}|}\sum_{j}\cos(E_I^{(j)}(\tilde{x}),E_T^{(j)}(t_p^{\star}))$. \textbf{Stage~3} scores the frozen image against unseen ESCI shopper queries across the four cohorts (E/S/C/I) and re-scores Axis~B---no re-attack---on four held-out encoders. The shopper query never crosses the Anchor-Decoupled Query Firewall. Snowflakes mark frozen modules.}
+\includegraphics[width=0.85\textwidth]{figures/fig_framework.pdf}
+\caption{Anchor-decoupled evaluation protocol with a cross-encoder transfer probe, instantiated for CoGEO. \textbf{Stage~1} precomputes the seller anchor $v_{\mathrm{anchor}}{=}E_T(t_p^{\star})$ from the product title and a Sobel-edge mask $M_E$ (top-$40\%$ gradient pixels); $v_{\mathrm{anchor}}$ depends on the product image alone, never on a shopper query. \textbf{Stage~2} runs the CoGEO inner loop---JPEG-compress, encode with the frozen CLIP tower, nudge toward the anchor, smooth with momentum, edit only masked edge pixels---for $K{=}200$ iterations at $\varepsilon{=}16/255$; baselines PGD-bare, AdvCLIP and Co-Attack drop or replace individual boxes. Two orthogonal axes, not competing attacks: \emph{Axis~A} optimizes against a single white-box encoder; \emph{Axis~B} (AE-CoGEO) against a four-source consensus loss $L_{\mathrm{ens}}{=}-\tfrac{1}{|\mathcal{S}|}\sum_{j}\cos(E_I^{(j)}(\tilde{x}),E_T^{(j)}(t_p^{\star}))$. \textbf{Stage~3} scores the frozen image against unseen ESCI shopper queries across the four cohorts (E/S/C/I) and re-scores Axis~B---no re-attack---on four held-out encoders. The shopper query never crosses the Anchor-Decoupled Query Firewall. Snowflakes mark frozen modules.}
 \Description{Three-stage anchor-decoupled pipeline with a transfer probe. Stage one builds a frozen text anchor from the product title together with a Sobel gradient mask; the anchor depends only on the product image, never on the shopper query. Stage two runs a five-step perturbation loop (differentiable JPEG, frozen image encoding, anchor-alignment cosine loss, momentum gradient, masked projection) and splits into two orthogonal axes: a white-box axis against a single encoder, and a transfer axis (AE-CoGEO) that optimizes a four-encoder consensus loss over optimize-only source encoders. Stage three scores the frozen image against unseen shopper queries across four relevance cohorts and re-scores the transfer axis on four held-out encoders without re-attacking; the query is separated from the optimization path by an anchor-decoupled query firewall.}
 \label{fig:framework}
 \end{figure*}
@@ -22,7 +22,7 @@ v_{\text{anchor}}(x_p)\ \text{is a function of}\ x_p\ \text{alone,}\ \text{not o
 \end{equation}
 Concretely, $v_{\text{anchor}}$ may be the CLIP text encoding of the product category, of a VLM description of $x_p$ (varied across BLIP, BLIP-2, LLaVA-1.5, Qwen2-VL, and Qwen2.5-VL in the released artifact), or of the product title; in all cases it depends only on the seller-side description. The query $q$ enters only at evaluation time, when we measure rank-lift, top-3 replacement, and held-out cosine similarity gains under $q$.
 
-This invariant is the operational definition of an honest VGEO evaluation: when the eval query is itself derived from $v_{\text{anchor}}$, the similarity gain is structurally inflated relative to held-out retrieval impact. We enforce \eqref{eq:invariant} at the code level across all four families with a compact reference verifier ($\sim$60 lines, released artifact) that statically rejects any query-like attack parameter and dynamically checks that the perturbation is byte-identical across swapped eval queries under a fixed seed.
+This invariant is the operational definition of an honest visual-GEO evaluation: when the eval query is itself derived from $v_{\text{anchor}}$, the similarity gain is structurally inflated relative to held-out retrieval impact. We enforce \eqref{eq:invariant} at the code level across all four families with a compact reference verifier ($\sim$60 lines, released artifact) that statically rejects any query-like attack parameter and dynamically checks that the perturbation is byte-identical across swapped eval queries under a fixed seed.
 
 \subsection{Pre-flight monotonicity gate}
 \label{sec:method:noop}
@@ -38,9 +38,9 @@ A retriever that fails \eqref{eq:noop_gate} cannot serve as an evaluation substr
 \subsection{Four-way attack pass}
 \label{sec:method:attacks}
 
-Within the invariant, four white-box attack families are evaluated at matched perturbation budget $\eps = 16/255$:
+Within the invariant, four white-box attack families are evaluated at a matched perturbation budget $\eps = 16/255$, the cross-family normalization point at which all four families separate cleanly (not a claim that it is the only deployment-relevant budget; the budget-dependence is examined in \S\ref{sec:analysis:eps}):
 
-\paragraph{CoGEO} Per-image projected gradient descent~\cite{madry2018pgd,goodfellow2015fgsm} on $x_p$ with momentum (MI-FGSM~\cite{dong2018mifgsm}), Sobel-edge mask restricting perturbation to high-gradient regions, environment simulation through a differentiable JPEG layer~\cite{shin2017diffjpeg} together with input-diversity~\cite{xie2019dim} and scale-invariant~\cite{lin2020sim} transformations, and product-title $v_{\text{anchor}}$; CoGEO is the attack we propose and the primary subject of the held-out evaluation. This recalibrated instantiation differs from prior CoGEO in three respects: a hard top-$40\%$ Sobel-gradient mask (vs.\ the original soft min-max-normalized mask floored at $0.1$), differentiable JPEG at $Q{=}75$ (vs.\ $Q{=}85$), and translation-invariant (TIM) smoothing omitted, as it gave no significant lift under the anchor$\perp$query setting.
+\paragraph{CoGEO} Per-image projected gradient descent~\cite{madry2018pgd,goodfellow2015fgsm} on $x_p$ with momentum (MI-FGSM~\cite{dong2018mifgsm}), Sobel-edge mask restricting perturbation to high-gradient regions, environment simulation through a differentiable JPEG layer~\cite{shin2017diffjpeg} together with input-diversity~\cite{xie2019dim} and scale-invariant~\cite{lin2020sim} transformations, and product-title $v_{\text{anchor}}$; CoGEO is the attack we propose and the primary subject of the held-out evaluation. Adapting it to the anchor-decoupled protocol fixes three design choices, each settled by an ablation in the released artifact: a hard top-$40\%$ Sobel-gradient mask (vs.\ a soft min-max-normalized mask floored at $0.1$), differentiable JPEG at $Q{=}75$ (vs.\ $Q{=}85$), and translation-invariant smoothing omitted, as it gave no significant lift under the anchor$\perp$query setting.
 
 Formally, let $x_p^{(k)}$ denote the listing image at iteration $k$ (with $x_p^{(0)}{=}x_p$). The Sobel edge mask
 \begin{equation}
@@ -57,16 +57,16 @@ The signed gradient is smoothed by a momentum buffer with $\mu=1.0$ following th
 g^{(k+1)} \;=\; \mu\,g^{(k)} \;+\; \frac{\nabla_{x}\,L^{(k)}}{\lVert\nabla_{x}\,L^{(k)}\rVert_1}, \quad \mu = 1.0,
 \label{eq:mifgsm_momentum}
 \end{equation}
-and, since maximizing anchor cosine is gradient descent on $L^{(k)}$, the masked signed-momentum step (step size $\alpha = 4/255$) is projected into the $\ell_\infty$ $\varepsilon$-ball around the clean image:
+The masked signed-momentum step (step size $\alpha = 4/255$) is then projected onto the $\ell_\infty$ $\varepsilon$-ball $\mathcal{B}_\infty(x_p,\varepsilon){=}\{x:\lVert x-x_p\rVert_\infty{\leq}\varepsilon\}$:
 \begin{equation}
-x_p^{(k+1)} \;=\; \Pi_{\lVert\,\cdot\,-\,x_p\rVert_\infty\,\leq\,\varepsilon}\!\Bigl(\, x_p^{(k)} \;-\; \alpha \cdot \mathrm{sign}\!\bigl(M_E \odot g^{(k+1)}\bigr) \,\Bigr).
+x_p^{(k+1)} \;=\; \Pi_{\mathcal{B}_\infty(x_p,\,\varepsilon)}\!\Bigl( x_p^{(k)} - \alpha \cdot \mathrm{sign}\bigl(M_E \odot g^{(k+1)}\bigr) \Bigr).
 \label{eq:masked_step}
 \end{equation}
-After $K{=}T{=}200$ iterations, $x_p^{\star}$ is the adversarial image evaluated against the held-out query in \S\ref{sec:method:metrics}.
+After $K{=}200$ iterations, $x_p^{\star}$ is the adversarial image evaluated against the held-out query in \S\ref{sec:method:metrics}.
 
-\paragraph{PGD-bare} The same product-title $v_{\text{anchor}}$ as CoGEO but without the Sobel mask, without environment simulation, and without momentum, recovering the classical signed-step PGD baseline of~\cite{madry2018pgd}. PGD-bare isolates the contribution of the anchor from the engineering machinery layered on top.
+\paragraph{PGD-bare} The same product-title $v_{\text{anchor}}$ as CoGEO but without the Sobel mask, environment simulation, or momentum, recovering the classical signed-step PGD baseline of~\cite{madry2018pgd} and isolating the anchor's contribution from the engineering layered on top.
 
-\paragraph{AdvCLIP} A query-agnostic universal adversarial patch~\cite{moosavidezfooli2017uap,thys2019adversarialpatches} trained on the CLIP image encoder~\cite{zhou2023advclip} over 30 epochs with budget $\eps = 16/255$, applied to each $x_p$ at evaluation. AdvCLIP requires no per-image gradient pass at deployment time and represents the universal-patch family of CLIP-targeted attacks.
+\paragraph{AdvCLIP} A query-agnostic universal adversarial patch~\cite{moosavidezfooli2017uap,thys2019adversarialpatches} trained on the CLIP image encoder~\cite{zhou2023advclip} over 30 epochs with budget $\eps = 16/255$, applied to each $x_p$ at evaluation. AdvCLIP requires no per-image gradient pass at deployment time.
 
 \paragraph{Co-Attack} A cross-modal alternating attack~\cite{zhang2022coattack} that interleaves an $L_\infty$ image perturbation ($\eps = 16/255$) and an $L_2$ text-anchor perturbation ($\eps_v = 0.1$) over 200 iterations. The text branch operates on the seller-side anchor only, never on $q$, so the invariant is preserved.
 
@@ -74,7 +74,7 @@ All four pipelines take only $x_p$ as optimization input; the held-out ESCI quer
 
 The CoGEO inner loop is fully specified by Eqs.~\eqref{eq:sobel_mask}--\eqref{eq:masked_step}; the full evaluation-pass pseudocode is in the released artifact.
 
-\subsection{AE-CoGEO: a cross-encoder-consensus transfer attack}
+\subsection{AE-CoGEO: a cross-encoder-consensus transfer probe}
 \label{sec:method:aecogeo}
 
 The four-way comparison above is a \emph{white-box} measurement: the encoder that drives the perturbation also scores it. This bounds one axis --- how far an attacker can move the ranking of a retriever it fully controls --- but leaves unmeasured the realistic deployment axis, where the platform retriever is an \emph{unseen} encoder the attacker never optimized against. We introduce \textbf{AE-CoGEO} (Anchor-decoupled Ensemble CoGEO) to measure this second axis.
@@ -84,9 +84,9 @@ AE-CoGEO keeps both protocol commitments of CoGEO unchanged --- the perturbation
 L_{\mathrm{ens}}(\delta) = -\frac{1}{m}\sum_{j=1}^{m} \cos\bigl(E_I^{(j)}(\tilde{x}),\, E_T^{(j)}(t_p^{\star})\bigr),
 \label{eq:ens_loss}
 \end{equation}
-and the masked MI-FGSM update of \eqref{eq:mifgsm_momentum}--\eqref{eq:masked_step} is applied to $\nabla_\delta L_{\mathrm{ens}}$ without further change. Because each $E_T^{(j)}$ embeds the same seller-side anchor in its own space, $\delta$ raises anchor alignment \emph{simultaneously} across architectures and pretraining corpora rather than overfitting the geometry of a single encoder. Ensemble optimization is a known route to adversarial transferability~\cite{papernot2017transferable,dong2018mifgsm,xie2019dim}; AE-CoGEO is, to our knowledge, the first to combine it with the query-free, anchor-decoupled constraint visual GEO imposes.
+and the masked MI-FGSM update of \eqref{eq:mifgsm_momentum}--\eqref{eq:masked_step} is applied to $\nabla_\delta L_{\mathrm{ens}}$ without change, so $\delta$ raises anchor alignment \emph{simultaneously} across architectures rather than overfitting one encoder's geometry. Ensemble optimization is a standard transferability route~\cite{papernot2017transferable,dong2018mifgsm,xie2019dim}; AE-CoGEO's increment is combining it diagnostically with the query-free, anchor-decoupled constraint visual GEO imposes.
 
-Source and held-out encoders are strictly disjoint: the source set is $\mathcal{S}=\{$OpenAI ViT-L/14, OpenAI ViT-B/32, EVA-02-L/14, DataComp-XL ViT-L/14$\}$ and the held-out set is $\{$OpenCLIP-L/14, -H/14, -B/32 (all LAION-2B), SigLIP ViT-B/16$\}$, with no shared checkpoint and no shared pretraining corpus. Every other setting --- $\eps=16/255$, $T=200$, Sobel mask, differentiable-JPEG and input-diversity environment simulation, and product-title anchor --- is identical to the single-encoder CoGEO arm, so any change in held-out behavior is attributable to the consensus mechanism alone.
+Source and held-out encoders are strictly disjoint: the source set is $\mathcal{S}=\{$OpenAI ViT-L/14, OpenAI ViT-B/32, EVA-02-L/14, DataComp-XL ViT-L/14$\}$ and the held-out set is $\{$OpenCLIP-L/14, -H/14, -B/32 (all LAION-2B), SigLIP ViT-B/16$\}$, with no shared checkpoint and no shared pretraining corpus. Every other setting --- $\eps=16/255$, $K=200$, Sobel mask, differentiable-JPEG and input-diversity environment simulation, and product-title anchor --- is identical to the single-encoder CoGEO arm, so any change in held-out behavior is attributable to the consensus mechanism alone.
 
 CoGEO and AE-CoGEO thus instrument two orthogonal axes of the same threat --- the white-box and transfer ceilings --- with AE-CoGEO the calibrated transfer probe; \S\ref{sec:analysis:transfer} reports the measurement.
 

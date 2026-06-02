@@ -11,7 +11,7 @@ tables can never drift):
   (c) AE-CoGEO held-out transfer vs single-encoder + ceiling  (tab:transfer, n=498)
   (d) Four-way rank-lift across six CLIP backbones            (C1 cross-encoder, ESCI 491)
   (e) SSIM vs rank-lift stealth/lift trade-off                (tab:main4way, 224x224, eps=16/255)
-  (f) Food-101 cross-dataset 4-method ordering                (505 triples, OpenAI ViT-L/14)
+  (f) Food-101 cross-dataset 4-method ordering                (n=2,020, OpenAI ViT-L/14)
 
 Morandi palette (mist-stone primary + sage-clay contrast + dust-rose accent).
 """
@@ -245,7 +245,7 @@ axf.set_title("(d) Six CLIP backbones")
 
 # =========================== (f) Food-101 cross-dataset bars ===========================
 # Same 4-method bar format as panel (d), on a second image distribution: the ESCI
-# ordering CoGEO > PGD-bare > Co-Attack > AdvCLIP is preserved (Food-101, 505 triples,
+# ordering CoGEO > PGD-bare > Co-Attack > AdvCLIP is preserved (Food-101, n=2,020,
 # OpenAI ViT-L/14, eps=16/255). Per-method colors match the rest of the figure.
 F_METHODS = ["CoGEO", "PGD-bare", "Co-Attack", "AdvCLIP"]
 F_VALS = [113.2, 96.5, 91.1, 30.4]

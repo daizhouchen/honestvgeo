@@ -1,0 +1,12 @@
+# CoGEO ICMR 2026 — re-implementation deps. Install into the existing project conda env, NOT a new one.
+# Pinned versions will be filled in after the first `pip install` succeeds.
+open-clip-torch
+piq
+diffjpeg
+einops
+numpy
+pillow
+scikit-image
+huggingface-hub
+transformers
+accelerate

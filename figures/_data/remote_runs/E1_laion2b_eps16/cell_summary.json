@@ -1,5 +1,5 @@
 {
-  "run_root": "<repo>/runs/E1_laion2b_eps16",
+  "run_root": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16",
   "methods": {
     "cogeo": {
       "attack_summary": {
@@ -12,10 +12,10 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 2666.63,
-        "out_img_dir": "<repo>/runs/E1_laion2b_eps16/cogeo/img",
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16/cogeo/img",
         "clip_backbone": "ViT-L-14-laion2b",
         "image_size": 224,
-        "manifest": "<repo>/data/esci500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",
@@ -46,10 +46,10 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 2694.84,
-        "out_img_dir": "<repo>/runs/E1_laion2b_eps16/pgd_bare/img",
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16/pgd_bare/img",
         "clip_backbone": "ViT-L-14-laion2b",
         "image_size": 224,
-        "manifest": "<repo>/data/esci500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",
@@ -84,11 +84,11 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 135.71,
-        "out_img_dir": "<repo>/runs/E1_laion2b_eps16/advclip/img",
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16/advclip/img",
         "clip_backbone": "ViT-L-14-laion2b",
         "image_size": 224,
-        "manifest": "<repo>/data/esci500_thumbs/manifest.csv",
-        "delta_uap_path": "<repo>/runs/E1_laion2b_eps16/advclip/delta_uap.pt",
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+        "delta_uap_path": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16/advclip/delta_uap.pt",
         "delta_uap_l_inf_max": 0.062745101749897
       },
       "rank_summary": {
@@ -124,10 +124,10 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 2629.3,
-        "out_img_dir": "<repo>/runs/E1_laion2b_eps16/coattack/img",
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E1_laion2b_eps16/coattack/img",
         "clip_backbone": "ViT-L-14-laion2b",
         "image_size": 224,
-        "manifest": "<repo>/data/esci500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",
