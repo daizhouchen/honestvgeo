@@ -51,7 +51,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # self-contained, repo-local data (copied from the verified remote runs) so the
 # figure is reproducible without the off-repo GPU-host paths.
 PAPER = os.path.join(HERE, "..", "results")
-RUNS = PAPER
+RUNS = os.path.join(PAPER, "backbones")
 WHITEBOX_CEILING = 18.47
 
 METHODS = ["CoGEO", "PGD-bare", "AdvCLIP", "Co-Attack"]

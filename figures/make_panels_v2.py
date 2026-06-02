@@ -170,7 +170,7 @@ plt.close(fig)
 # eps=16/255 on the same 491-ASIN ESCI manifest.
 # ============================================================
 def load_remote_cell(name):
-    p = os.path.join(PAPER, name, "cell_summary.json")
+    p = os.path.join(PAPER, "backbones", name, "cell_summary.json")
     with open(p) as f:
         return json.load(f)
 

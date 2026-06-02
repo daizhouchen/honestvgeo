@@ -32,7 +32,7 @@ ROSE, DROSE, DSTONE = "#B88C8C", "#9B5F5C", "#5b5b5b"
 PALE = "#C9BBA8"
 
 HERE = Path(__file__).resolve().parent
-DATA = HERE / ".." / "results" / "L7_5way"
+DATA = HERE / ".." / "results" / "five_family" / "L7_5way"
 
 # ordered by overall mean rank-lift (CoGEO strongest on top of the ridgeline)
 # Five clearly distinct (but still desaturated) hues so the families separate by
