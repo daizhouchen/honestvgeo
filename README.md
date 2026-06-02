@@ -38,6 +38,21 @@ Anchor-Decoupled Evaluation and a Transfer Probe"** (ICDM 2026 submission).
 └── figures/                  # make_*.py — regenerate every plot from ../results/
 ```
 
+## Documentation
+
+Every directory has its own README with file-by-file detail:
+
+- [`src/README.md`](src/README.md) — code organized by role (method / attacks / eval /
+  defense / data / analysis / scripts), the attack→score→aggregate pipeline, and a
+  table describing every module and launcher.
+- [`results/README.md`](results/README.md) — the seven result themes and which paper
+  table/figure each maps to.
+- [`figures/README.md`](figures/README.md) — which `make_*.py` produces which figure,
+  and what data it reads.
+- [`manifests/README.md`](manifests/README.md) — manifest columns and how to obtain
+  the (public, unbundled) images.
+- [`ENVIRONMENT.md`](ENVIRONMENT.md) — software/hardware the experiments ran under.
+
 ## Where each artifact item the paper references lives
 
 | Item | Here |

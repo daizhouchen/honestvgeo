@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standalone rank evaluator -- SAME ESCI口径 as code/eval_harness.py --mode rank.
+"""Standalone rank evaluator -- SAME ESCI protocol as eval/eval_harness.py --mode rank.
 
 Replicates eval_harness rank math EXACTLY:
   - sim = cosine( CLIP_image_feat, CLIP_text_feat(query) )  [query held out, eval-time only]
@@ -10,7 +10,7 @@ Replicates eval_harness rank math EXACTLY:
   - rank_lift = rank_orig - rank_adv
 Only difference vs harness: image features computed with a GPU re-impl of the SAME
 open_clip ViT-L/14 preprocessing (Resize224 bicubic+antialias->CenterCrop224->CLIP norm),
-to avoid the harness's CPU-preproc stall on this box. Math/口径 identical.
+to avoid the harness's CPU-preproc stall on this box. Math/protocol identical.
 
 Outputs: rank_nes_per_pair.csv + rank_nes_summary.json (same columns as harness).
 """
