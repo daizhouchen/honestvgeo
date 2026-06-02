@@ -42,7 +42,7 @@ SAGE = ["#E7E1D6", "#B7A99A", "#7F8F84"]
 ROSE = ["#F2E9E6", "#D8C3BC", "#B88C8C"]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PAPER = os.path.normpath(os.path.join(HERE, "..", ".."))
+PAPER = os.path.join(HERE, "_data")
 AGG_PATH = os.path.join(PAPER, "n3_esci_full_aggregate.json")
 
 with open(AGG_PATH) as f:

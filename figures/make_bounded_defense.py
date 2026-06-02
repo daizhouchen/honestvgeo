@@ -12,7 +12,7 @@ plus the cohort-adaptive-budget (CAB) negative (an adaptive budget is WORSE than
 uniform), all far below the same ceiling; a training-free detector flags every
 family at AUROC 0.99-1.00.
 
-All numbers match sections/supplement.tex exactly:
+All numbers are hardcoded to match the manuscript exactly:
   transfer    AE 3.29/4.80/5.85/8.60 (pooled 5.64); BLIP 7.52; MaxSim<=1.5; BLIP-2 ~0
   purify(e=4) 8.50->1.98 (-77%); cohort-oracle ->1.18; adaptive 5.15->4.77
   CAB(e=16)   uniform 15.6 vs adaptive 13.0; ceiling 18.47

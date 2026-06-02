@@ -1,0 +1,151 @@
+{
+  "run_root": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16",
+  "methods": {
+    "cogeo": {
+      "attack_summary": {
+        "method": "cogeo",
+        "anchor_mode": "product-title",
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "n_images": 505,
+        "n_attacked": 505,
+        "n_skipped": 0,
+        "wall_seconds": 2704.16,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/cogeo/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "cogeo",
+        "n_pairs": 2020,
+        "delta_held_out_mean": 0.04251257702708244,
+        "delta_held_out_ci95_half": 0.0014144467641865376,
+        "rank_lift_mean": 113.21782178217822,
+        "rank_lift_median": 81.0,
+        "i_label_top3_promotion_rate_orig": 0.0,
+        "i_label_top3_promotion_rate_adv": 0.0004950495049504951,
+        "per_label_delta_mean": {
+          "E": 0.07662741094827652,
+          "S": 0.036605700850486755,
+          "C": 0.030036823824048042,
+          "I": 0.026780376210808754
+        }
+      }
+    },
+    "pgd_bare": {
+      "attack_summary": {
+        "method": "pgd_bare",
+        "anchor_mode": "product-title",
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "n_images": 505,
+        "n_attacked": 505,
+        "n_skipped": 0,
+        "wall_seconds": 2699.85,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/pgd_bare/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "pgd_bare",
+        "n_pairs": 2020,
+        "delta_held_out_mean": 0.05482528358697891,
+        "delta_held_out_ci95_half": 0.0024004098135783298,
+        "rank_lift_mean": 96.49405940594059,
+        "rank_lift_median": 55.5,
+        "i_label_top3_promotion_rate_orig": 0.0,
+        "i_label_top3_promotion_rate_adv": 0.0004950495049504951,
+        "per_label_delta_mean": {
+          "E": 0.13089795410633087,
+          "S": 0.03886210918426514,
+          "C": 0.029525285586714745,
+          "I": 0.020015781745314598
+        }
+      }
+    },
+    "advclip": {
+      "attack_summary": {
+        "method": "advclip",
+        "anchor_mode": "product-title",
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "uap_epochs": 20,
+        "uap_batch": 16,
+        "text_eps": null,
+        "text_alpha": null,
+        "n_images": 505,
+        "n_attacked": 505,
+        "n_skipped": 0,
+        "wall_seconds": 128.88,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/advclip/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv",
+        "delta_uap_path": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/advclip/delta_uap.pt",
+        "delta_uap_l_inf_max": 0.062745101749897
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "advclip",
+        "n_pairs": 2020,
+        "delta_held_out_mean": 0.0072348956018686295,
+        "delta_held_out_ci95_half": 0.000701164784512195,
+        "rank_lift_mean": 30.36930693069307,
+        "rank_lift_median": 3.0,
+        "i_label_top3_promotion_rate_orig": 0.0,
+        "i_label_top3_promotion_rate_adv": 0.0,
+        "per_label_delta_mean": {
+          "E": 0.007444988004863262,
+          "S": 0.008041183464229107,
+          "C": 0.006530752405524254,
+          "I": 0.006922658998519182
+        }
+      }
+    },
+    "coattack": {
+      "attack_summary": {
+        "method": "coattack",
+        "anchor_mode": "product-title",
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "uap_epochs": null,
+        "uap_batch": null,
+        "text_eps": 0.1,
+        "text_alpha": 0.02,
+        "n_images": 505,
+        "n_attacked": 505,
+        "n_skipped": 0,
+        "wall_seconds": 2609.93,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/coattack/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "coattack",
+        "n_pairs": 2020,
+        "delta_held_out_mean": 0.05324050039052963,
+        "delta_held_out_ci95_half": 0.002417295144515138,
+        "rank_lift_mean": 91.11039603960396,
+        "rank_lift_median": 49.0,
+        "i_label_top3_promotion_rate_orig": 0.0,
+        "i_label_top3_promotion_rate_adv": 0.0014851485148514852,
+        "per_label_delta_mean": {
+          "E": 0.12934939563274384,
+          "S": 0.03708760812878609,
+          "C": 0.027918336912989616,
+          "I": 0.018606677651405334
+        }
+      }
+    }
+  }
+}
