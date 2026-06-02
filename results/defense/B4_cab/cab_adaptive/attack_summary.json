@@ -15,9 +15,9 @@
   "mu": 1.0,
   "n_images": 491,
   "wall_seconds": 2748.61,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/B4_cab/cab_adaptive/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/B4_cab/cab_adaptive/img",
   "clip_backbone": "openai/clip-vit-large-patch14",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+  "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv",
   "seed": 42
 }

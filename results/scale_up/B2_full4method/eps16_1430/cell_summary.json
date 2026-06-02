@@ -1,5 +1,5 @@
 {
-  "run_root": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps16_1430",
+  "run_root": "${PROJECT_ROOT}/runs/B2_full4method/eps16_1430",
   "methods": {
     "advclip": {
       "attack_summary": {
@@ -16,11 +16,11 @@
         "n_attacked": 1421,
         "n_skipped": 0,
         "wall_seconds": 1669.36,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps16_1430/advclip/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/B2_full4method/eps16_1430/advclip/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv",
-        "delta_uap_path": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps16_1430/advclip/delta_uap.pt",
+        "manifest": "${PROJECT_ROOT}/data/esci1500_thumbs/manifest.csv",
+        "delta_uap_path": "${PROJECT_ROOT}/runs/B2_full4method/eps16_1430/advclip/delta_uap.pt",
         "delta_uap_l_inf_max": 0.062745101749897
       },
       "rank_summary": {
@@ -56,10 +56,10 @@
         "n_attacked": 1421,
         "n_skipped": 0,
         "wall_seconds": 8283.71,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps16_1430/coattack/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/B2_full4method/eps16_1430/coattack/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/data/esci1500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",

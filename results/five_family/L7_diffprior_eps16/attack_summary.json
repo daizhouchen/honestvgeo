@@ -14,8 +14,8 @@
   "n_attacked": 491,
   "n_skipped": 0,
   "wall_seconds": 3080.17,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/L7_diffprior_eps16/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/L7_diffprior_eps16/img",
   "clip_backbone": "openai/clip-vit-large-patch14",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+  "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv"
 }

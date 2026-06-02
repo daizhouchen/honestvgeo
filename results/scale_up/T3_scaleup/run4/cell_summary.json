@@ -1,5 +1,5 @@
 {
-  "run_root": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4",
+  "run_root": "${PROJECT_ROOT}/runs/T3_scaleup/run4",
   "methods": {
     "cogeo": {
       "attack_summary": {
@@ -13,10 +13,10 @@
         "n_attacked": 1421,
         "n_skipped": 0,
         "wall_seconds": 8852.15,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4/cogeo/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/T3_scaleup/run4/cogeo/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/data/esci1500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",
@@ -48,10 +48,10 @@
         "n_attacked": 1421,
         "n_skipped": 0,
         "wall_seconds": 8802.87,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4/pgd_bare/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/T3_scaleup/run4/pgd_bare/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/data/esci1500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",

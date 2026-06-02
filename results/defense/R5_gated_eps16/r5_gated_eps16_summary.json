@@ -25,10 +25,10 @@
     "purify": "purify_dir.t_jpeg(im,40) imported; flagged saved PNG content; unflagged copied byte-identical",
     "harness": "eval_harness.py UNCHANGED --mode rank --clip-backbone openai/clip-vit-large-patch14; rank_lift=rank_orig-rank_adv; mean over per_pair CSV",
     "deployed_model": "symmetric: adv lift img-dir=D(gallery) adv-dir=D(adv); clean cost img-dir=pristine gallery adv-dir=D(gallery)",
-    "adv_src": "${PROJECT_ROOT}/n3/runs/n3_cogeo_eps16/img",
-    "gallery": "${PROJECT_ROOT}/n3/data/esci500_thumbs/img",
-    "clean224": "${PROJECT_ROOT}/n3/runs/T2_detector/clean224",
-    "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+    "adv_src": "${PROJECT_ROOT}/runs/n3_cogeo_eps16/img",
+    "gallery": "${PROJECT_ROOT}/data/esci500_thumbs/img",
+    "clean224": "${PROJECT_ROOT}/runs/T2_detector/clean224",
+    "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv",
     "note": "self-contained at eps16; no eps4/R4 CSV reuse; all 5 quantities re-ranked fresh"
   }
 }

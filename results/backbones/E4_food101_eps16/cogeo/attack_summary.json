@@ -8,8 +8,8 @@
   "n_attacked": 505,
   "n_skipped": 0,
   "wall_seconds": 2704.16,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/cogeo/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/E4_food101_eps16/cogeo/img",
   "clip_backbone": "ViT-L-14",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv"
+  "manifest": "${PROJECT_ROOT}/data/food101_thumbs/manifest.csv"
 }

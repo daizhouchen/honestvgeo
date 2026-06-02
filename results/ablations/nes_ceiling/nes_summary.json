@@ -39,14 +39,14 @@
   },
   "interpretation": "At a 2000 forward-query/image budget on the SAME 120 cohort-balanced pairs (E/S/C/I=30) and SAME 491-ASIN pool, both NES and CoGEO scored by the identical evaluator (rank_eval_nes.py): gradient-free NES reaches only 22.8% of CoGEO held-out rank-lift (3.05 vs 13.39) and 48.8% of CoGEO held-out delta (0.01510 vs 0.03094). Paired Wilcoxon two-sided: rank_lift p=4.05e-04, delta p=2.81e-10 -> CoGEO significantly exceeds NES on both; one-sided greater(NES>CoGEO) p~1.0 (no evidence NES wins). NES gain is genuine (100% of images raised title-anchor cosine, mean +0.0639, all within eps=16/255, linf_max=16). Conclusion: a pure gradient-free NES black-box attack does NOT reach the CoGEO ceiling at 2000 queries/image; CoGEO retains a large (~4.7x rank-lift, ~2x delta), statistically significant held-out advantage.",
   "files": {
-    "rank_nes_per_pair_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/rank_nes_per_pair.csv",
-    "rank_cogeo_per_pair_csv_harness": "${PROJECT_ROOT}/n3/runs/n3_eval/rank_cogeo_per_pair.csv",
-    "rank_cogeo_per_pair_csv_sameeval": "${PROJECT_ROOT}/n3/runs/nes_ceiling/cogeo_sameeval/rank_cogeo_per_pair.csv",
-    "nes_subset_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_subset.csv",
-    "nes_attack_log_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_attack_log.csv",
-    "nes_attack_summary_json": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_attack_summary.json",
-    "rank_eval_nes_py": "${PROJECT_ROOT}/n3/code/rank_eval_nes.py",
-    "nes_attack_py": "${PROJECT_ROOT}/n3/code/nes_attack.py",
-    "nes_summary_json": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_summary.json"
+    "rank_nes_per_pair_csv": "${PROJECT_ROOT}/runs/nes_ceiling/rank_nes_per_pair.csv",
+    "rank_cogeo_per_pair_csv_harness": "${PROJECT_ROOT}/runs/n3_eval/rank_cogeo_per_pair.csv",
+    "rank_cogeo_per_pair_csv_sameeval": "${PROJECT_ROOT}/runs/nes_ceiling/cogeo_sameeval/rank_cogeo_per_pair.csv",
+    "nes_subset_csv": "${PROJECT_ROOT}/runs/nes_ceiling/nes_subset.csv",
+    "nes_attack_log_csv": "${PROJECT_ROOT}/runs/nes_ceiling/nes_attack_log.csv",
+    "nes_attack_summary_json": "${PROJECT_ROOT}/runs/nes_ceiling/nes_attack_summary.json",
+    "rank_eval_nes_py": "${PROJECT_ROOT}/src/rank_eval_nes.py",
+    "nes_attack_py": "${PROJECT_ROOT}/src/nes_attack.py",
+    "nes_summary_json": "${PROJECT_ROOT}/runs/nes_ceiling/nes_summary.json"
   }
 }

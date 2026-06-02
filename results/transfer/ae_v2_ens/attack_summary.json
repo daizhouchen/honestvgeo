@@ -18,7 +18,7 @@
   "mean_pert_l2": 19.6551,
   "n_images": 491,
   "wall_seconds": 9376.35,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/ae_v2_ens/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/ae_v2_ens/img",
   "image_size": 224,
   "seed": 42
 }

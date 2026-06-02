@@ -12,10 +12,10 @@
   "n_attacked": 505,
   "n_skipped": 0,
   "wall_seconds": 128.88,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/advclip/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/E4_food101_eps16/advclip/img",
   "clip_backbone": "ViT-L-14",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/food101_thumbs/manifest.csv",
-  "delta_uap_path": "${PROJECT_ROOT}/n3/runs/E4_food101_eps16/advclip/delta_uap.pt",
+  "manifest": "${PROJECT_ROOT}/data/food101_thumbs/manifest.csv",
+  "delta_uap_path": "${PROJECT_ROOT}/runs/E4_food101_eps16/advclip/delta_uap.pt",
   "delta_uap_l_inf_max": 0.062745101749897
 }

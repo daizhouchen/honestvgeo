@@ -12,10 +12,10 @@
   "n_attacked": 491,
   "n_skipped": 0,
   "wall_seconds": 187.01,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/F_siglip_eps16/advclip/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/F_siglip_eps16/advclip/img",
   "clip_backbone": "ViT-B-16-SigLIP-webli",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
-  "delta_uap_path": "${PROJECT_ROOT}/n3/runs/F_siglip_eps16/advclip/delta_uap.pt",
+  "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv",
+  "delta_uap_path": "${PROJECT_ROOT}/runs/F_siglip_eps16/advclip/delta_uap.pt",
   "delta_uap_l_inf_max": 0.062745101749897
 }

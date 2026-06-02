@@ -1,5 +1,5 @@
 {
-  "run_root": "${PROJECT_ROOT}/n3/runs/E2_openai_eps4",
+  "run_root": "${PROJECT_ROOT}/runs/E2_openai_eps4",
   "methods": {
     "cogeo": {
       "attack_summary": {
@@ -12,10 +12,10 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 2542.56,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E2_openai_eps4/cogeo/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/E2_openai_eps4/cogeo/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",
@@ -46,10 +46,10 @@
         "n_attacked": 491,
         "n_skipped": 0,
         "wall_seconds": 2614.21,
-        "out_img_dir": "${PROJECT_ROOT}/n3/runs/E2_openai_eps4/pgd_bare/img",
+        "out_img_dir": "${PROJECT_ROOT}/runs/E2_openai_eps4/pgd_bare/img",
         "clip_backbone": "ViT-L-14",
         "image_size": 224,
-        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+        "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv"
       },
       "rank_summary": {
         "mode": "rank",

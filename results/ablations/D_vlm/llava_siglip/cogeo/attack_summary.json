@@ -1,7 +1,7 @@
 {
   "method": "cogeo",
   "anchor_mode": "vlm",
-  "vlm_captions_json": "${PROJECT_ROOT}/n3/data/vlm_captions/llava.json",
+  "vlm_captions_json": "${PROJECT_ROOT}/data/vlm_captions/llava.json",
   "eps": 16,
   "alpha": 4,
   "iters": 200,
@@ -9,8 +9,8 @@
   "n_attacked": 491,
   "n_skipped": 0,
   "wall_seconds": 5586.48,
-  "out_img_dir": "${PROJECT_ROOT}/n3/runs/D_vlm/llava_siglip/cogeo/img",
+  "out_img_dir": "${PROJECT_ROOT}/runs/D_vlm/llava_siglip/cogeo/img",
   "clip_backbone": "ViT-B-16-SigLIP-webli",
   "image_size": 224,
-  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+  "manifest": "${PROJECT_ROOT}/data/esci500_thumbs/manifest.csv"
 }
