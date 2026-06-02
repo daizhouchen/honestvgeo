@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "eps4_openai_rs50",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.00829108152538538,
+  "delta_held_out_ci95_half": 0.0015241510245531356,
+  "rank_lift_mean": 5.464,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.092,
+  "i_label_top3_promotion_rate_adv": 0.114,
+  "per_label_delta_mean": {
+    "E": 0.007293891627341509,
+    "S": 0.010902651585638523,
+    "C": 0.00849014800041914,
+    "I": 0.006477633956819773
+  }
+}

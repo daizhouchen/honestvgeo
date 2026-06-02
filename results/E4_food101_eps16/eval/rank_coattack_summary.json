@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "coattack",
+  "n_pairs": 2020,
+  "delta_held_out_mean": 0.05324050039052963,
+  "delta_held_out_ci95_half": 0.002417295144515138,
+  "rank_lift_mean": 91.11039603960396,
+  "rank_lift_median": 49.0,
+  "i_label_top3_promotion_rate_orig": 0.0,
+  "i_label_top3_promotion_rate_adv": 0.0014851485148514852,
+  "per_label_delta_mean": {
+    "E": 0.12934939563274384,
+    "S": 0.03708760812878609,
+    "C": 0.027918336912989616,
+    "I": 0.018606677651405334
+  }
+}

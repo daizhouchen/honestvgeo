@@ -1,0 +1,38 @@
+{
+  "kind": "D_vlm_ablation",
+  "vlm": "blip2",
+  "clip_backbone": "ViT-B-16-SigLIP-webli",
+  "attack_summary": {
+    "method": "cogeo",
+    "anchor_mode": "vlm",
+    "vlm_captions_json": "${PROJECT_ROOT}/n3/data/vlm_captions/blip2.json",
+    "eps": 16,
+    "alpha": 4,
+    "iters": 200,
+    "n_images": 491,
+    "n_attacked": 491,
+    "n_skipped": 0,
+    "wall_seconds": 5572.02,
+    "out_img_dir": "${PROJECT_ROOT}/n3/runs/D_vlm/blip2_siglip/cogeo/img",
+    "clip_backbone": "ViT-B-16-SigLIP-webli",
+    "image_size": 224,
+    "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+  },
+  "rank_summary": {
+    "mode": "rank",
+    "method_tag": "cogeo_vlm_blip2",
+    "n_pairs": 500,
+    "delta_held_out_mean": 0.00902330782264471,
+    "delta_held_out_ci95_half": 0.002568454596522207,
+    "rank_lift_mean": 6.098,
+    "rank_lift_median": 0.0,
+    "i_label_top3_promotion_rate_orig": 0.11,
+    "i_label_top3_promotion_rate_adv": 0.13,
+    "per_label_delta_mean": {
+      "E": 0.004818737041205168,
+      "S": 0.006183232180774212,
+      "C": 0.010326463729143143,
+      "I": 0.014764796942472458
+    }
+  }
+}

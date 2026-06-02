@@ -1,0 +1,31 @@
+{
+  "paradigm": "late_interaction_maxsim_colbert_style",
+  "clip_model": "ViT-B-32/laion2b_s34b_b79k",
+  "held_out": true,
+  "method_tag": "pgd_bare",
+  "n_pairs": 1430,
+  "patches": 49,
+  "rank_lift_global_mean": 13.026573426573426,
+  "rank_lift_global_median": 0.0,
+  "per_label_rank_lift_global": {
+    "E": 4.816,
+    "S": 18.330666666666666,
+    "C": 15.773770491803278,
+    "I": 13.698666666666666
+  },
+  "lateint_delta_mean": 0.005633527957476102,
+  "rank_lift_lateint_mean": 33.77412587412587,
+  "rank_lift_lateint_median": 1.5,
+  "per_label_rank_lift_lateint": {
+    "E": 3.648,
+    "S": 45.328,
+    "C": 72.9311475409836,
+    "I": 20.498666666666665
+  },
+  "per_label_lateint_delta": {
+    "E": 0.00265994389851888,
+    "S": 0.008511792023976644,
+    "C": 0.00887959961031304,
+    "I": 0.0030887096722920734
+  }
+}

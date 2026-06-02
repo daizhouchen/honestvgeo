@@ -1,0 +1,25 @@
+{
+  "method": "ae_cogeo_encoder_ensemble",
+  "source_backbones": [
+    "openai/clip-vit-large-patch14",
+    "ViT-B-32",
+    "EVA02-L-14",
+    "ViT-L-14-datacomp"
+  ],
+  "n_source_encoders": 4,
+  "anchor_mode": "ensemble",
+  "ensemble_agg": "mean",
+  "max_anchors": 6,
+  "eps": 16.0,
+  "alpha": 4.0,
+  "iters": 200,
+  "mu": 1.0,
+  "use_envsim": true,
+  "tau": 8.0,
+  "mean_pert_l2": 19.6664,
+  "n_images": 491,
+  "wall_seconds": 12565.19,
+  "out_img_dir": "${PROJECT_ROOT}/n3/runs/ae_v3_ens4/img",
+  "image_size": 224,
+  "seed": 42
+}

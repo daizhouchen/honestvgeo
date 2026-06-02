@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """make_distribution_figure.py — beautiful standalone per-pair rank-lift distribution.
 
-Two panels, real per-pair data (remote_pull/L7_5way/rank_<fam>_per_pair.csv, n=500 each,
+Two panels, real per-pair data (results/L7_5way/rank_<fam>_per_pair.csv, n=500 each,
 columns query_id,cohort,rank_lift):
   (a) Ridgeline (joyplot) of the five attack families' rank-lift KDE — shape / heavy tail.
   (b) Empirical CDF of the same five families — magnitude, reads off tail mass.
@@ -32,7 +32,7 @@ ROSE, DROSE, DSTONE = "#B88C8C", "#9B5F5C", "#5b5b5b"
 PALE = "#C9BBA8"
 
 HERE = Path(__file__).resolve().parent
-DATA = HERE / "_data" / "L7_5way"
+DATA = HERE / ".." / "results" / "L7_5way"
 
 # ordered by overall mean rank-lift (CoGEO strongest on top of the ridgeline)
 # Five clearly distinct (but still desaturated) hues so the families separate by

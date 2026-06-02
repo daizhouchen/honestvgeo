@@ -1,0 +1,25 @@
+{
+  "adapt_none": {
+    "ALL": 5.146,
+    "median": 0.0,
+    "n": 500,
+    "E": 0.0,
+    "S": 1.12,
+    "C": 14.248,
+    "I": 5.216
+  },
+  "adapt_jq40": {
+    "ALL": 4.772,
+    "median": 0.0,
+    "n": 500,
+    "E": 0.24,
+    "S": 6.696,
+    "C": 11.008,
+    "I": 1.144
+  },
+  "_baseline_nonadaptive": {
+    "undef_ALL": 8.5,
+    "jq40_ALL": 1.98,
+    "note": "existing E2_openai_eps4 (no EOT)"
+  }
+}

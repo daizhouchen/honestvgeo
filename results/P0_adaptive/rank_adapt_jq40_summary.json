@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "adapt_jq40",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.00935240089893341,
+  "delta_held_out_ci95_half": 0.0017511855716193616,
+  "rank_lift_mean": 4.772,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.086,
+  "i_label_top3_promotion_rate_adv": 0.104,
+  "per_label_delta_mean": {
+    "E": 0.008738849312067032,
+    "S": 0.013024203479290009,
+    "C": 0.010056852363049984,
+    "I": 0.005589693319052458
+  }
+}

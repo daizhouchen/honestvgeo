@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "advclip",
+  "n_pairs": 1430,
+  "delta_held_out_mean": 0.009298686869442463,
+  "delta_held_out_ci95_half": 0.0011194062993554006,
+  "rank_lift_mean": 26.15804195804196,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.08881118881118881,
+  "i_label_top3_promotion_rate_adv": 0.1076923076923077,
+  "per_label_delta_mean": {
+    "E": 0.01053396426141262,
+    "S": 0.010235201567411423,
+    "C": 0.006668373942375183,
+    "I": 0.00926621537655592
+  }
+}

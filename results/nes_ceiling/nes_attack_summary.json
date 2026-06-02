@@ -1,0 +1,18 @@
+{
+  "n_attacked": 120,
+  "forward_per_image": 2000,
+  "forward_per_image_incl_baseline_and_final": 2002,
+  "nforward_total": 240240,
+  "eps": 0.06274509803921569,
+  "eps_px": 16.0,
+  "sigma": 0.03137254901960784,
+  "pop_half": 20,
+  "population": 40,
+  "iters": 50,
+  "lr": 0.5,
+  "fit_gain_mean": 0.06392444926702107,
+  "fit_gain_pos_rate": 1.0,
+  "linf_max": 16,
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "elapsed_s": 1146.1476373672485
+}

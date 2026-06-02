@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_vitb32_bd4",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.00965685211122036,
+  "delta_held_out_ci95_half": 0.002453126047279571,
+  "rank_lift_mean": 9.17,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.092,
+  "i_label_top3_promotion_rate_adv": 0.104,
+  "per_label_delta_mean": {
+    "E": 0.003030011197552085,
+    "S": 0.006596698891371489,
+    "C": 0.01639476604759693,
+    "I": 0.012605932541191578
+  }
+}

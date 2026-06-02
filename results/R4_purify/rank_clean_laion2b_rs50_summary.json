@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "clean_laion2b_rs50",
+  "n_pairs": 500,
+  "delta_held_out_mean": -0.005781704094260931,
+  "delta_held_out_ci95_half": 0.0014644662245634312,
+  "rank_lift_mean": -2.25,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.106,
+  "i_label_top3_promotion_rate_adv": 0.106,
+  "per_label_delta_mean": {
+    "E": -0.005158734507858753,
+    "S": -0.0048026638105511665,
+    "C": -0.009019848890602589,
+    "I": -0.004145569168031216
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "run_root": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps4_491",
+  "methods": {
+    "advclip": {
+      "attack_summary": {
+        "method": "advclip",
+        "anchor_mode": "product-title",
+        "eps": 4,
+        "alpha": 4,
+        "iters": 200,
+        "uap_epochs": 20,
+        "uap_batch": 16,
+        "text_eps": null,
+        "text_alpha": null,
+        "n_images": 491,
+        "n_attacked": 491,
+        "n_skipped": 0,
+        "wall_seconds": 135.34,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps4_491/advclip/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+        "delta_uap_path": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps4_491/advclip/delta_uap.pt",
+        "delta_uap_l_inf_max": 0.01568627543747425
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "advclip",
+        "n_pairs": 500,
+        "delta_held_out_mean": 0.0007982348906807601,
+        "delta_held_out_ci95_half": 0.001604063735833077,
+        "rank_lift_mean": -0.75,
+        "rank_lift_median": 0.0,
+        "i_label_top3_promotion_rate_orig": 0.102,
+        "i_label_top3_promotion_rate_adv": 0.104,
+        "per_label_delta_mean": {
+          "E": 0.0006291684694588184,
+          "S": 0.0032167695462703705,
+          "C": -0.0006196064641699195,
+          "I": -3.339174509164877e-05
+        }
+      }
+    },
+    "coattack": {
+      "attack_summary": {
+        "method": "coattack",
+        "anchor_mode": "product-title",
+        "eps": 4,
+        "alpha": 4,
+        "iters": 200,
+        "uap_epochs": null,
+        "uap_batch": null,
+        "text_eps": 0.1,
+        "text_alpha": 0.02,
+        "n_images": 491,
+        "n_attacked": 491,
+        "n_skipped": 0,
+        "wall_seconds": 2859.35,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps4_491/coattack/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "coattack",
+        "n_pairs": 500,
+        "delta_held_out_mean": 0.011662530712783337,
+        "delta_held_out_ci95_half": 0.00208207642210101,
+        "rank_lift_mean": 3.34,
+        "rank_lift_median": 0.0,
+        "i_label_top3_promotion_rate_orig": 0.102,
+        "i_label_top3_promotion_rate_adv": 0.106,
+        "per_label_delta_mean": {
+          "E": 0.012154513970017433,
+          "S": 0.01456264965236187,
+          "C": 0.013840856961905956,
+          "I": 0.0060921018011868
+        }
+      }
+    }
+  }
+}

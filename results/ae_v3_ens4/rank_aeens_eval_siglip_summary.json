@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "aeens_eval_siglip",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.003926956094801426,
+  "delta_held_out_ci95_half": 0.0015375869851327547,
+  "rank_lift_mean": 4.802,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.11,
+  "i_label_top3_promotion_rate_adv": 0.128,
+  "per_label_delta_mean": {
+    "E": -0.0012475218391045928,
+    "S": 0.0011209957301616669,
+    "C": 0.007943814620375633,
+    "I": 0.007890536449849606
+  }
+}

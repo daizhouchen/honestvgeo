@@ -1,0 +1,19 @@
+{
+  "method": "gfree_nes",
+  "anchor_mode": "product-title",
+  "eps": 16,
+  "sigma": 0.01,
+  "lr": 0.02,
+  "pop": 20,
+  "iters": 100,
+  "forward_queries_per_image": 2000,
+  "use_mask": false,
+  "n_images": 491,
+  "total_forward_queries": 982000,
+  "wall_seconds": 5802.79,
+  "out_img_dir": "runs/n3_gfree_eps16/img",
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "image_size": 224,
+  "manifest": "data/esci500_thumbs/manifest.csv",
+  "gradient_used": false
+}

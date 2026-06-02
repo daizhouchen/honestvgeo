@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_laion2b_jq40",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.009747093543410301,
+  "delta_held_out_ci95_half": 0.002758286686723151,
+  "rank_lift_mean": 4.748,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.108,
+  "i_label_top3_promotion_rate_adv": 0.12,
+  "per_label_delta_mean": {
+    "E": 0.008544371463358402,
+    "S": 0.0060473415069282055,
+    "C": 0.012897842563688755,
+    "I": 0.01149881910532713
+  }
+}

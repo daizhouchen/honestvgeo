@@ -1,0 +1,24 @@
+{
+  "paradigm": "blip_fused_encoder_itm_rerank",
+  "blip_model": "Salesforce/blip-itm-base-coco",
+  "topk": 50,
+  "method_tag": "ae_cogeo",
+  "n_pairs": 500,
+  "itc_delta_mean": 0.00524471502006054,
+  "itm_delta_mean": 0.009926246760580397,
+  "rank_lift_itc_mean": 6.728,
+  "rank_lift_rerank_mean": 7.522,
+  "rank_lift_rerank_median": 0.0,
+  "per_label_rank_lift_rerank": {
+    "E": 4.008,
+    "S": 1.912,
+    "C": 8.408,
+    "I": 15.76
+  },
+  "per_label_itm_delta": {
+    "E": -0.028125903442734853,
+    "S": -0.01599798907668446,
+    "C": 0.04535876685995754,
+    "I": 0.03847011270178336
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mode": "rank",
+  "method_tag": "nes",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.003580318531021476,
+  "delta_held_out_ci95_half": 0.0011221067101555766,
+  "rank_lift_mean": 0.888,
+  "rank_lift_median": 0.0,
+  "per_label_delta_mean": {
+    "E": 0.004244470503181219,
+    "S": 0.0028180244844406843,
+    "C": 0.005692306440323591,
+    "I": 0.001566471648402512
+  }
+}

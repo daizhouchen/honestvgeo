@@ -39,8 +39,8 @@ SAGE = ["#E7E1D6", "#B7A99A", "#7F8F84"]
 ROSE = ["#F2E9E6", "#D8C3BC", "#B88C8C"]
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PAPER = os.path.join(ROOT, "_data")
-RUNS = os.path.join(PAPER, "remote_runs")
+PAPER = os.path.join(ROOT, "..", "results")
+RUNS = PAPER
 
 
 def load_cell(name):

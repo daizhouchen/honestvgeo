@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "cogeo_vlm_blip",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.015779243782162666,
+  "delta_held_out_ci95_half": 0.003005546479478864,
+  "rank_lift_mean": 14.112,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.102,
+  "i_label_top3_promotion_rate_adv": 0.122,
+  "per_label_delta_mean": {
+    "E": 0.014870394952595234,
+    "S": 0.013270408846437931,
+    "C": 0.01853133551776409,
+    "I": 0.01644483581185341
+  }
+}

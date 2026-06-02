@@ -1,0 +1,50 @@
+{
+  "n_pairs": 504,
+  "n_unique_asins": 491,
+  "rank_lift_cogeo_mean": 16.015873015873016,
+  "rank_lift_pgd_bare_mean": 13.628968253968255,
+  "rank_lift_diff_mean": 2.386904761904762,
+  "rank_lift_diff_median": 0.0,
+  "rank_lift_diff_ci95": [
+    -0.5993055555555555,
+    5.501140873015872
+  ],
+  "wilcoxon_paired_greater": {
+    "W": 11852.0,
+    "p_value": 0.04871471246537877
+  },
+  "delta_held_out_diff_mean": -0.00518574036421284,
+  "per_label_rank_lift": {
+    "E": {
+      "n": 125,
+      "cg_mean": 3.904,
+      "pb_mean": 7.12,
+      "diff": -3.216
+    },
+    "S": {
+      "n": 125,
+      "cg_mean": 5.24,
+      "pb_mean": 1.84,
+      "diff": 3.4000000000000004
+    },
+    "C": {
+      "n": 129,
+      "cg_mean": 29.069767441860463,
+      "pb_mean": 26.612403100775193,
+      "diff": 2.4573643410852704
+    },
+    "I": {
+      "n": 125,
+      "cg_mean": 25.432,
+      "pb_mean": 18.528,
+      "diff": 6.904
+    }
+  },
+  "i_label_top3_orig": 0.10119047619047619,
+  "i_label_top3_cogeo": 0.14682539682539683,
+  "i_label_top3_pgd_bare": 0.13293650793650794,
+  "i_label_top3_gain_cg_vs_pb": 0.013888888888888895,
+  "ssim_cogeo_mean": 0.662543707372221,
+  "ssim_pgd_bare_mean": 0.758431045363443,
+  "ssim_n": 491
+}

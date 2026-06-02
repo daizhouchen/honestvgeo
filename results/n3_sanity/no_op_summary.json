@@ -1,0 +1,24 @@
+{
+  "mode": "no-op",
+  "manifest": "data/esci500_thumbs/manifest.csv",
+  "img_dir": "data/esci500_thumbs/img",
+  "clip_backbone": "openai/clip-vit-base-patch32",
+  "n_pairs": 500,
+  "per_label_n": {
+    "E": 125,
+    "S": 125,
+    "C": 125,
+    "I": 125
+  },
+  "per_label_mean_sim": {
+    "E": 0.28558072447776794,
+    "S": 0.2791242301464081,
+    "C": 0.25696611404418945,
+    "I": 0.24512991309165955
+  },
+  "mean_sim_E": 0.28558072447776794,
+  "mean_sim_I": 0.24512991309165955,
+  "gap_E_minus_I": 0.0404508113861084,
+  "gate_threshold": 0.05,
+  "gate_pass": false
+}

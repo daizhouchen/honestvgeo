@@ -1,0 +1,24 @@
+{
+  "paradigm": "blip2_qformer_itm_rerank",
+  "model": "Salesforce/blip2-itm-vit-g",
+  "topk": 50,
+  "method_tag": "advclip",
+  "n_pairs": 1430,
+  "itc_delta_mean": 0.0006562146742443938,
+  "itm_delta_mean": 0.0059448826095376715,
+  "rank_lift_itc_mean": -3.9895104895104896,
+  "rank_lift_rerank_mean": -3.3181818181818183,
+  "rank_lift_rerank_median": 0.0,
+  "per_label_rank_lift_rerank": {
+    "E": -6.621333333333333,
+    "S": 0.3466666666666667,
+    "C": -14.452459016393442,
+    "I": 5.376
+  },
+  "per_label_itm_delta": {
+    "E": -0.006228617322194623,
+    "S": 0.00806252079204205,
+    "C": 0.009263072889268083,
+    "I": 0.013301949597918186
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "method": "cogeo_cab_uniform",
+  "budget_mode": "uniform",
+  "mean_eps_target": 16.0,
+  "mean_eps_achieved": 16.0,
+  "eps_lo": 8.0,
+  "eps_hi": 24.0,
+  "gamma": 1.0,
+  "eps_min": 16.0,
+  "eps_max": 16.0,
+  "eps_std": 0.0,
+  "mean_pert_l2": 20.1085,
+  "alpha": 4.0,
+  "iters": 200,
+  "mu": 1.0,
+  "n_images": 491,
+  "wall_seconds": 2802.54,
+  "out_img_dir": "${PROJECT_ROOT}/n3/runs/B4_cab/cab_uniform/img",
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "image_size": 224,
+  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+  "seed": 42
+}

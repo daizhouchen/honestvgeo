@@ -1,0 +1,38 @@
+{
+  "kind": "D_vlm_ablation",
+  "vlm": "qwen2",
+  "clip_backbone": "ViT-H-14-laion2b",
+  "attack_summary": {
+    "method": "cogeo",
+    "anchor_mode": "vlm",
+    "vlm_captions_json": "${PROJECT_ROOT}/n3/data/vlm_captions/qwen2.json",
+    "eps": 16,
+    "alpha": 4,
+    "iters": 200,
+    "n_images": 491,
+    "n_attacked": 491,
+    "n_skipped": 0,
+    "wall_seconds": 13478.07,
+    "out_img_dir": "${PROJECT_ROOT}/n3/runs/D_vlm/qwen2_vith14/cogeo/img",
+    "clip_backbone": "ViT-H-14-laion2b",
+    "image_size": 224,
+    "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+  },
+  "rank_summary": {
+    "mode": "rank",
+    "method_tag": "cogeo_vlm_qwen2",
+    "n_pairs": 500,
+    "delta_held_out_mean": 0.024828944355249405,
+    "delta_held_out_ci95_half": 0.0035391750927919025,
+    "rank_lift_mean": 3.87,
+    "rank_lift_median": 0.0,
+    "i_label_top3_promotion_rate_orig": 0.114,
+    "i_label_top3_promotion_rate_adv": 0.132,
+    "per_label_delta_mean": {
+      "E": 0.0238413717597723,
+      "S": 0.02757546305656433,
+      "C": 0.02745969034731388,
+      "I": 0.020439257845282555
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_laion2b_bd5",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.009048568084836006,
+  "delta_held_out_ci95_half": 0.0027286515371866,
+  "rank_lift_mean": 5.518,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.104,
+  "i_label_top3_promotion_rate_adv": 0.124,
+  "per_label_delta_mean": {
+    "E": 0.005935337860137224,
+    "S": 0.003261323319748044,
+    "C": 0.01819351315498352,
+    "I": 0.008804096840322018
+  }
+}

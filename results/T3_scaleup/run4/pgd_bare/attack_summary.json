@@ -1,0 +1,16 @@
+{
+  "method": "pgd_bare",
+  "anchor_mode": "product-title",
+  "vlm_captions_json": null,
+  "eps": 16,
+  "alpha": 4,
+  "iters": 200,
+  "n_images": 1421,
+  "n_attacked": 1421,
+  "n_skipped": 0,
+  "wall_seconds": 8802.87,
+  "out_img_dir": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4/pgd_bare/img",
+  "clip_backbone": "ViT-L-14",
+  "image_size": 224,
+  "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+}

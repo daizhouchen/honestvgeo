@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "pgd_bare",
+  "n_pairs": 2020,
+  "delta_held_out_mean": 0.05482528358697891,
+  "delta_held_out_ci95_half": 0.0024004098135783298,
+  "rank_lift_mean": 96.49405940594059,
+  "rank_lift_median": 55.5,
+  "i_label_top3_promotion_rate_orig": 0.0,
+  "i_label_top3_promotion_rate_adv": 0.0004950495049504951,
+  "per_label_delta_mean": {
+    "E": 0.13089795410633087,
+    "S": 0.03886210918426514,
+    "C": 0.029525285586714745,
+    "I": 0.020015781745314598
+  }
+}

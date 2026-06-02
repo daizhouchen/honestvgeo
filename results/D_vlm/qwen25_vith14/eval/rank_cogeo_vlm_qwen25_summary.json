@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "cogeo_vlm_qwen25",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.02311861328780651,
+  "delta_held_out_ci95_half": 0.0037119796586028986,
+  "rank_lift_mean": 4.07,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.114,
+  "i_label_top3_promotion_rate_adv": 0.138,
+  "per_label_delta_mean": {
+    "E": 0.02427987940609455,
+    "S": 0.028146566823124886,
+    "C": 0.019112255424261093,
+    "I": 0.02093575894832611
+  }
+}

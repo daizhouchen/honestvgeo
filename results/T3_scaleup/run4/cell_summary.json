@@ -1,0 +1,75 @@
+{
+  "run_root": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4",
+  "methods": {
+    "cogeo": {
+      "attack_summary": {
+        "method": "cogeo",
+        "anchor_mode": "product-title",
+        "vlm_captions_json": null,
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "n_images": 1421,
+        "n_attacked": 1421,
+        "n_skipped": 0,
+        "wall_seconds": 8852.15,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4/cogeo/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "cogeo",
+        "n_pairs": 1430,
+        "delta_held_out_mean": 0.034679535776376724,
+        "delta_held_out_ci95_half": 0.0017255184244344014,
+        "rank_lift_mean": 41.26013986013986,
+        "rank_lift_median": 1.0,
+        "i_label_top3_promotion_rate_orig": 0.08881118881118881,
+        "i_label_top3_promotion_rate_adv": 0.15244755244755245,
+        "per_label_delta_mean": {
+          "E": 0.03788510710000992,
+          "S": 0.033717360347509384,
+          "C": 0.03644059598445892,
+          "I": 0.031003814190626144
+        }
+      }
+    },
+    "pgd_bare": {
+      "attack_summary": {
+        "method": "pgd_bare",
+        "anchor_mode": "product-title",
+        "vlm_captions_json": null,
+        "eps": 16,
+        "alpha": 4,
+        "iters": 200,
+        "n_images": 1421,
+        "n_attacked": 1421,
+        "n_skipped": 0,
+        "wall_seconds": 8802.87,
+        "out_img_dir": "${PROJECT_ROOT}/n3/runs/T3_scaleup/run4/pgd_bare/img",
+        "clip_backbone": "ViT-L-14",
+        "image_size": 224,
+        "manifest": "${PROJECT_ROOT}/n3/data/esci1500_thumbs/manifest.csv"
+      },
+      "rank_summary": {
+        "mode": "rank",
+        "method_tag": "pgd_bare",
+        "n_pairs": 1430,
+        "delta_held_out_mean": 0.04665752127766609,
+        "delta_held_out_ci95_half": 0.0023190951074269313,
+        "rank_lift_mean": 33.27902097902098,
+        "rank_lift_median": 1.0,
+        "i_label_top3_promotion_rate_orig": 0.08881118881118881,
+        "i_label_top3_promotion_rate_adv": 0.16083916083916083,
+        "per_label_delta_mean": {
+          "E": 0.05262841656804085,
+          "S": 0.04344969242811203,
+          "C": 0.054154373705387115,
+          "I": 0.03779701143503189
+        }
+      }
+    }
+  }
+}

@@ -50,8 +50,8 @@ ROSE = ["#F2E9E6", "#D8C3BC", "#B88C8C"]
 HERE = os.path.dirname(os.path.abspath(__file__))
 # self-contained, repo-local data (copied from the verified remote runs) so the
 # figure is reproducible without the off-repo GPU-host paths.
-PAPER = os.path.join(HERE, "_data")
-RUNS = os.path.join(PAPER, "remote_runs")
+PAPER = os.path.join(HERE, "..", "results")
+RUNS = PAPER
 WHITEBOX_CEILING = 18.47
 
 METHODS = ["CoGEO", "PGD-bare", "AdvCLIP", "Co-Attack"]
@@ -80,7 +80,7 @@ def _load_cell(name):
         return json.load(f)
 
 
-AGG = json.load(open(os.path.join(PAPER, "n3_esci_full_aggregate.json")))
+AGG = json.load(open(os.path.join(PAPER, "esci_full_aggregate.json")))
 _e1 = _load_cell("E1_laion2b_eps16")
 _e5 = _load_cell("E5_eva02_eps16")
 _main_rl = {"cogeo": 19.86, "pgd_bare": 12.37, "advclip": 6.45, "coattack": 5.77}

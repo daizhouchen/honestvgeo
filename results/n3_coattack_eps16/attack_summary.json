@@ -1,0 +1,19 @@
+{
+  "method": "coattack",
+  "anchor_mode": "product-title",
+  "eps": 16,
+  "alpha": 4,
+  "iters": 200,
+  "uap_epochs": null,
+  "uap_batch": null,
+  "text_eps": 0.1,
+  "text_alpha": 0.02,
+  "n_images": 491,
+  "n_attacked": 491,
+  "n_skipped": 0,
+  "wall_seconds": 2681.65,
+  "out_img_dir": "runs/n3_coattack_eps16/img",
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "image_size": 224,
+  "manifest": "data/esci500_thumbs/manifest.csv"
+}

@@ -1,0 +1,21 @@
+{
+  "method": "advclip",
+  "anchor_mode": "product-title",
+  "eps": 8,
+  "alpha": 4,
+  "iters": 200,
+  "uap_epochs": 20,
+  "uap_batch": 16,
+  "text_eps": null,
+  "text_alpha": null,
+  "n_images": 491,
+  "n_attacked": 491,
+  "n_skipped": 0,
+  "wall_seconds": 136.47,
+  "out_img_dir": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps8_491/advclip/img",
+  "clip_backbone": "ViT-L-14",
+  "image_size": 224,
+  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+  "delta_uap_path": "${PROJECT_ROOT}/n3/runs/B2_full4method/eps8_491/advclip/delta_uap.pt",
+  "delta_uap_l_inf_max": 0.0313725508749485
+}

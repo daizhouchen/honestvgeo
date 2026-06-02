@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "title_attacked_openai_eval_vitb32",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.003290431573987007,
+  "delta_held_out_ci95_half": 0.002859264307928782,
+  "rank_lift_mean": 6.388,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.09,
+  "i_label_top3_promotion_rate_adv": 0.114,
+  "per_label_delta_mean": {
+    "E": -0.003825922030955553,
+    "S": -0.0019049576949328184,
+    "C": 0.009564938023686409,
+    "I": 0.009327666833996773
+  }
+}

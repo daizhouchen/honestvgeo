@@ -1,0 +1,24 @@
+{
+  "paradigm": "blip2_qformer_itm_rerank",
+  "model": "Salesforce/blip2-itm-vit-g",
+  "topk": 50,
+  "method_tag": "coattack",
+  "n_pairs": 1430,
+  "itc_delta_mean": -0.00021114261833937853,
+  "itm_delta_mean": -0.002396108368929277,
+  "rank_lift_itc_mean": -11.096503496503496,
+  "rank_lift_rerank_mean": -10.41048951048951,
+  "rank_lift_rerank_median": 0.0,
+  "per_label_rank_lift_rerank": {
+    "E": -12.677333333333333,
+    "S": -8.248,
+    "C": -1.8918032786885246,
+    "I": -17.234666666666666
+  },
+  "per_label_itm_delta": {
+    "E": -0.016450543491261974,
+    "S": -0.0030683252312640736,
+    "C": 0.007510797869539243,
+    "I": 0.004272926541783818
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "D_vlm_ablation",
+  "vlm": "blip2",
+  "clip_backbone": "ViT-H-14-laion2b",
+  "attack_summary": {
+    "method": "cogeo",
+    "anchor_mode": "vlm",
+    "vlm_captions_json": "${PROJECT_ROOT}/n3/data/vlm_captions/blip2.json",
+    "eps": 16,
+    "alpha": 4,
+    "iters": 200,
+    "n_images": 491,
+    "n_attacked": 491,
+    "n_skipped": 0,
+    "wall_seconds": 18018.54,
+    "out_img_dir": "${PROJECT_ROOT}/n3/runs/D_vlm/blip2_vith14/cogeo/img",
+    "clip_backbone": "ViT-H-14-laion2b",
+    "image_size": 224,
+    "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv"
+  },
+  "rank_summary": {
+    "mode": "rank",
+    "method_tag": "cogeo_vlm_blip2",
+    "n_pairs": 500,
+    "delta_held_out_mean": 0.019750988110899925,
+    "delta_held_out_ci95_half": 0.003923548390118495,
+    "rank_lift_mean": 5.24,
+    "rank_lift_median": 0.0,
+    "i_label_top3_promotion_rate_orig": 0.114,
+    "i_label_top3_promotion_rate_adv": 0.134,
+    "per_label_delta_mean": {
+      "E": 0.016162432730197906,
+      "S": 0.020748473703861237,
+      "C": 0.02114666812121868,
+      "I": 0.02094637230038643
+    }
+  }
+}

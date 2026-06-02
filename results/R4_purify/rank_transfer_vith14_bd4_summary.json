@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_vith14_bd4",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.0064952680841088295,
+  "delta_held_out_ci95_half": 0.002583497081353751,
+  "rank_lift_mean": 3.786,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.116,
+  "i_label_top3_promotion_rate_adv": 0.118,
+  "per_label_delta_mean": {
+    "E": 0.004153002519160509,
+    "S": 0.0035991945769637823,
+    "C": 0.014071013778448105,
+    "I": 0.00415786262601614
+  }
+}

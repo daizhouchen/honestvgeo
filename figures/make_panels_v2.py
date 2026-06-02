@@ -42,8 +42,8 @@ SAGE = ["#E7E1D6", "#B7A99A", "#7F8F84"]
 ROSE = ["#F2E9E6", "#D8C3BC", "#B88C8C"]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PAPER = os.path.join(HERE, "_data")
-AGG_PATH = os.path.join(PAPER, "n3_esci_full_aggregate.json")
+PAPER = os.path.join(HERE, "..", "results")
+AGG_PATH = os.path.join(PAPER, "esci_full_aggregate.json")
 
 with open(AGG_PATH) as f:
     AGG = json.load(f)
@@ -170,7 +170,7 @@ plt.close(fig)
 # eps=16/255 on the same 491-ASIN ESCI manifest.
 # ============================================================
 def load_remote_cell(name):
-    p = os.path.join(PAPER, "remote_runs", name, "cell_summary.json")
+    p = os.path.join(PAPER, name, "cell_summary.json")
     with open(p) as f:
         return json.load(f)
 

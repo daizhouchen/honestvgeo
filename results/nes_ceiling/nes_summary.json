@@ -1,0 +1,52 @@
+{
+  "experiment": "NES gradient-free (forward-only) black-box attack ceiling check vs CoGEO, held-out rank-lift",
+  "anchor": "product_title (anchor-decoupled; eval query held out, never used in NES optimization)",
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "eps_Linf": "16/255",
+  "nes_linf_max_verified": 16,
+  "nes_population": 40,
+  "nes_pop_half_antithetic": 20,
+  "nes_iters": 50,
+  "nes_lr": 0.5,
+  "nes_forward_per_image": 2000,
+  "nes_forward_per_image_incl_baseline_final": 2002,
+  "nes_forward_total": 240240,
+  "nes_fit_gain_mean": 0.06392444926702107,
+  "nes_fit_gain_pos_rate": 1.0,
+  "subset": "cohort-balanced 120 (E/S/C/I=30 each), seed=1234",
+  "n_attacked": 120,
+  "n_common": 120,
+  "pool": "491-ASIN distractor pool == CoGEO eval pool (non-attacked ASINs are verbatim original copies)",
+  "scoring_note": "Both NES and CoGEO scored by the SAME evaluator code/rank_eval_nes.py (GPU-preproc reimpl of eval_harness rank math). Cross-checked on this 120-subset: rank_eval_nes CoGEO rank_lift=14.258 matches eval_harness CoGEO rank_lift=14.258 exactly; on full 500 the GPU-vs-CPU preproc gives delta 0.03061 vs harness 0.03145.",
+  "nes_rank_lift_mean": 3.05,
+  "cogeo_rank_lift_mean_same_subset": 13.391666666666667,
+  "nes_rank_lift_median": 0.0,
+  "cogeo_rank_lift_median_same_subset": 0.0,
+  "nes_over_cogeo_ratio_rank_lift": 0.22775357809583072,
+  "nes_delta_held_out_mean": 0.015095216470460061,
+  "cogeo_delta_held_out_mean_same_subset": 0.03094205725938078,
+  "nes_over_cogeo_ratio_delta": 0.48785432539019713,
+  "wilcoxon_paired_rank_lift": {
+    "two_sided_p": 0.00040528605032366297,
+    "greater_p_NES_gt_CoGEO": 0.9997973569748382,
+    "n_zero_diffs": 66,
+    "zero_method": "wilcox(default)"
+  },
+  "wilcoxon_paired_delta_held_out": {
+    "two_sided_p": 2.811061211056256e-10,
+    "greater_p_NES_gt_CoGEO": 0.999999999859447,
+    "zero_method": "wilcox(default)"
+  },
+  "interpretation": "At a 2000 forward-query/image budget on the SAME 120 cohort-balanced pairs (E/S/C/I=30) and SAME 491-ASIN pool, both NES and CoGEO scored by the identical evaluator (rank_eval_nes.py): gradient-free NES reaches only 22.8% of CoGEO held-out rank-lift (3.05 vs 13.39) and 48.8% of CoGEO held-out delta (0.01510 vs 0.03094). Paired Wilcoxon two-sided: rank_lift p=4.05e-04, delta p=2.81e-10 -> CoGEO significantly exceeds NES on both; one-sided greater(NES>CoGEO) p~1.0 (no evidence NES wins). NES gain is genuine (100% of images raised title-anchor cosine, mean +0.0639, all within eps=16/255, linf_max=16). Conclusion: a pure gradient-free NES black-box attack does NOT reach the CoGEO ceiling at 2000 queries/image; CoGEO retains a large (~4.7x rank-lift, ~2x delta), statistically significant held-out advantage.",
+  "files": {
+    "rank_nes_per_pair_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/rank_nes_per_pair.csv",
+    "rank_cogeo_per_pair_csv_harness": "${PROJECT_ROOT}/n3/runs/n3_eval/rank_cogeo_per_pair.csv",
+    "rank_cogeo_per_pair_csv_sameeval": "${PROJECT_ROOT}/n3/runs/nes_ceiling/cogeo_sameeval/rank_cogeo_per_pair.csv",
+    "nes_subset_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_subset.csv",
+    "nes_attack_log_csv": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_attack_log.csv",
+    "nes_attack_summary_json": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_attack_summary.json",
+    "rank_eval_nes_py": "${PROJECT_ROOT}/n3/code/rank_eval_nes.py",
+    "nes_attack_py": "${PROJECT_ROOT}/n3/code/nes_attack.py",
+    "nes_summary_json": "${PROJECT_ROOT}/n3/runs/nes_ceiling/nes_summary.json"
+  }
+}

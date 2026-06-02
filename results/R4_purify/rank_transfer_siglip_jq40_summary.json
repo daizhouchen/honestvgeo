@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_siglip_jq40",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.0037925911601632833,
+  "delta_held_out_ci95_half": 0.0017279586928854967,
+  "rank_lift_mean": 5.982,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.114,
+  "i_label_top3_promotion_rate_adv": 0.122,
+  "per_label_delta_mean": {
+    "E": 0.000987162464298308,
+    "S": 0.0015428996412083507,
+    "C": 0.005868261214345694,
+    "I": 0.006772040855139494
+  }
+}

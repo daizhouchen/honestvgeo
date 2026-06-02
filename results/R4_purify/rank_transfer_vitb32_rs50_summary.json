@@ -1,0 +1,17 @@
+{
+  "mode": "rank",
+  "method_tag": "transfer_vitb32_rs50",
+  "n_pairs": 500,
+  "delta_held_out_mean": 0.009235616773366928,
+  "delta_held_out_ci95_half": 0.0023722448899271996,
+  "rank_lift_mean": 8.954,
+  "rank_lift_median": 0.0,
+  "i_label_top3_promotion_rate_orig": 0.096,
+  "i_label_top3_promotion_rate_adv": 0.104,
+  "per_label_delta_mean": {
+    "E": 0.003177932696416974,
+    "S": 0.005070957355201244,
+    "C": 0.016873614862561226,
+    "I": 0.011819959618151188
+  }
+}

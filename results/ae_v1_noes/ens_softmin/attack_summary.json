@@ -1,0 +1,21 @@
+{
+  "method": "ae_cogeo_ensemble_softmin",
+  "anchor_mode": "ensemble",
+  "ensemble_agg": "softmin",
+  "max_anchors": 6,
+  "mean_anchors_per_image": 5.487,
+  "eps": 16.0,
+  "alpha": 4.0,
+  "iters": 200,
+  "mu": 1.0,
+  "use_envsim": false,
+  "tau": 8.0,
+  "mean_pert_l2": 20.1042,
+  "n_images": 491,
+  "wall_seconds": 2800.45,
+  "out_img_dir": "${PROJECT_ROOT}/n3/runs/ae_v1_noes/ens_softmin/img",
+  "clip_backbone": "openai/clip-vit-large-patch14",
+  "image_size": 224,
+  "manifest": "${PROJECT_ROOT}/n3/data/esci500_thumbs/manifest.csv",
+  "seed": 42
+}

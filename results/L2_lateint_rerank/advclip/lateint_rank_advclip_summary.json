@@ -1,0 +1,31 @@
+{
+  "paradigm": "late_interaction_maxsim_colbert_style",
+  "clip_model": "ViT-B-32/laion2b_s34b_b79k",
+  "held_out": true,
+  "method_tag": "advclip",
+  "n_pairs": 1430,
+  "patches": 49,
+  "rank_lift_global_mean": 14.44965034965035,
+  "rank_lift_global_median": 0.0,
+  "per_label_rank_lift_global": {
+    "E": 5.648,
+    "S": 19.762666666666668,
+    "C": 15.544262295081968,
+    "I": 17.048
+  },
+  "lateint_delta_mean": 0.0008683958878883949,
+  "rank_lift_lateint_mean": 8.372727272727273,
+  "rank_lift_lateint_median": 0.0,
+  "per_label_rank_lift_lateint": {
+    "E": -4.976,
+    "S": 28.290666666666667,
+    "C": 11.183606557377049,
+    "I": -0.4826666666666667
+  },
+  "per_label_lateint_delta": {
+    "E": -0.0010775640805562338,
+    "S": 0.004026849746704101,
+    "C": -0.001331072361742864,
+    "I": 0.0014448028405507406
+  }
+}
