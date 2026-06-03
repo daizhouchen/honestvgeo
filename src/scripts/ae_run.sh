@@ -119,7 +119,7 @@ if "title" in frames:
                 entry["wilcoxon_p"]=f"err:{e}"
         cmp[a]=entry
 print("=== ensemble arm vs title (paired) ==="); print(json.dumps(cmp, indent=2))
-out={"per_cohort":res,"paired_vs_title":cmp,"cogeo_491_headline_ref":19.86,"have_scipy":HAVE_SCIPY}
+out={"per_cohort":res,"paired_vs_title":cmp,"cogeo_headline_ref":15.71,"have_scipy":HAVE_SCIPY}
 json.dump(out, open(f"{OUT}/ae_compare.json","w"), indent=2)
 print(f"written {OUT}/ae_compare.json")
 PY
