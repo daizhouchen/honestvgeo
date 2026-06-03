@@ -6,7 +6,7 @@ bundled; the product **images** are public (Amazon ESCI) and are not included â€
 
 | File | Set |
 |---|---|
-| `esci500_manifest.csv` | headline set: **491 images / 560 paired triples**, balanced across the four ESCI relevance classes |
+| `esci500_manifest.csv` | headline set: **491 images / 500 paired triples** (125 per cohort), balanced across the four ESCI relevance classes |
 | `esci1500_manifest.csv` | the **1,430-pair** scale-up (3Ã— larger, label-balanced) |
 
 ## Columns

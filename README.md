@@ -20,14 +20,17 @@ Anchor-Decoupled Evaluation and a Transfer Probe"** (ICDM 2026 submission).
 │   ├── attacks/              # CoGEO (n3_attack.py), baselines (PGD-bare/AdvCLIP/Co-Attack),
 │   │                         #   AE-CoGEO transfer probe (n3_attack_ae*.py), diffusion-prior,
 │   │                         #   gradient-free NES, cohort-adaptive-budget
-│   ├── eval/                 # eval_harness.py = rank-lift scorer + no-op admissibility gate
-│   │                         #   (gap_{E-I}); BLIP / BLIP-2 / MaxSim transfer harnesses; NES eval
+│   ├── verify/               # standalone HonestEval verifiers: anchor_query_verifier.py
+│   │                         #   (anchor-perp-query invariant, no model) + admissibility_check.py
+│   │                         #   (no-model L-inf budget / integrity / cohort coverage)
+│   ├── eval/                 # eval_harness.py = rank-lift scorer + pre-flight retriever-
+│   │                         #   discrimination gate (gap_{E-I}); BLIP/BLIP-2/MaxSim harnesses; NES eval
 │   ├── defense/              # input purification, detector-gated purification, training-free
 │   │                         #   Laplacian detector + generalization
 │   ├── data/                 # ESCI / Food-101 loaders
 │   ├── analysis/             # statistics + aggregation -> the reported tables
 │   └── scripts/              # per-experiment launchers (*.sh); each resolves its own paths
-├── manifests/                # esci500_manifest.csv (491 imgs / 560 triples),
+├── manifests/                # esci500_manifest.csv (491 imgs / 500 triples),
 │                             #   esci1500_manifest.csv (1,430-pair scale-up)
 │                             #   cols: example_id, query_id, query, product_id (ASIN),
 │                             #   product_title, esci_label, image_path (img/<ASIN>.jpg)
@@ -57,7 +60,9 @@ Every directory has its own README with file-by-file detail:
 
 | Item | Here |
 |---|---|
-| anchor⊥query / no-op admissibility verifier | `src/eval/eval_harness.py` (`gap_E_minus_I` pre-flight gate) |
+| anchor⊥query invariant verifier (standalone, no model) | `src/verify/anchor_query_verifier.py` |
+| no-model admissibility verifier (L∞ budget / integrity / cohort coverage) | `src/verify/admissibility_check.py` |
+| pre-flight retriever-discrimination gate | `src/eval/eval_harness.py` (`gap_E_minus_I`) |
 | reference rank-lift scorer | `src/eval/eval_harness.py` |
 | CoGEO attack | `src/attacks/n3_attack.py` (blocks in `src/method/`) |
 | AE-CoGEO cross-encoder transfer probe | `src/attacks/n3_attack_ae.py`, `n3_attack_ae_ens.py` |
@@ -69,14 +74,18 @@ Every directory has its own README with file-by-file detail:
 ## Reproduce
 
 1. `pip install -r requirements.txt`; set `PROJECT_ROOT`.
-2. Fetch the public datasets/weights (ESCI & Food-101 via HuggingFace; CLIP-family
+2. **Verify the protocol (no model, seconds):**
+   `python src/verify/anchor_query_verifier.py --manifest manifests/esci500_manifest.csv`
+   certifies the anchor⊥query invariant; `src/verify/admissibility_check.py` checks the
+   L∞ budget / integrity / cohort coverage.
+3. Fetch the public datasets/weights (ESCI & Food-101 via HuggingFace; CLIP-family
    + BLIP weights on demand). Images are addressed `img/<ASIN>.jpg` per manifest.
-3. **Attack:** `bash src/scripts/run_4way.sh` (white-box four-way),
+4. **Attack:** `bash src/scripts/run_4way.sh` (white-box four-way),
    `bash src/scripts/ae_ens_run.sh` (AE-CoGEO consensus transfer), etc. Each script
    resolves the code paths itself; outputs land under `runs/`.
-4. **Score:** `src/eval/eval_harness.py` emits per-image rank-lift CSVs and the
+5. **Score:** `src/eval/eval_harness.py` emits per-image rank-lift CSVs and the
    admissibility gate; `src/analysis/n3_stats*.py` aggregates to the reported tables.
-5. **Figures:** `python figures/make_*.py` regenerate every plot from `results/`.
+6. **Figures:** `python figures/make_*.py` regenerate every plot from `results/`.
 
 The bundled `results/` are the reference outputs; rerunning the pipeline writes fresh
 outputs under `runs/`. Plotted values are hardcoded to the measured outputs so

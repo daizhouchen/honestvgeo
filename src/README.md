@@ -30,6 +30,12 @@ tables. `defense/` re-scores under detectors/purification; `data/` provides the 
 | `n3_attack_gfree.py` / `nes_attack.py` | Gradient-free **NES** black-box attack (white-box-advantage ceiling check) |
 | `n3_attack_cab.py` | Cohort-Adaptive-Budget attacker (tests whether per-cohort heterogeneity is exploitable) |
 
+## `verify/` — standalone HonestEval verifiers (no model)
+| File | Purpose |
+|---|---|
+| `anchor_query_verifier.py` | Certifies the **anchor⊥query invariant**: holds each product row fixed, substitutes a foreign eval query, and asserts the anchor is unchanged (and never echoes the query, and varies across products). Run before reporting rank-lift: `python verify/anchor_query_verifier.py --manifest ../manifests/esci500_manifest.csv` |
+| `admissibility_check.py` | **No-model** admissibility: L∞-budget compliance (`max\|adv−orig\|/255 ≤ ε`), image-integrity (same dimensions), and four-cohort coverage, from an `img/<ASIN>.jpg` layout + manifest (no retriever/VLM loaded) |
+
 ## `eval/` — scoring + the protocol gate
 | File | Purpose |
 |---|---|
