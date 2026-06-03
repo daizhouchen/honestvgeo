@@ -25,7 +25,7 @@ try:
 except Exception:
     HAVE_SK = False
 
-R = "${PROJECT_ROOT}"
+R = os.environ.get("PROJECT_ROOT", ".")
 IMG_SIZE = 224
 FPR_TARGET = 0.05
 CLEAN = f"{R}/runs/T2_detector/clean224"

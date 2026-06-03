@@ -47,7 +47,7 @@ try:
 except Exception:
     HAVE_SK = False
 
-R = "${PROJECT_ROOT}"
+R = os.environ.get("PROJECT_ROOT", ".")
 OUT = f"{R}/runs/B1_detector_generalization"
 os.makedirs(OUT, exist_ok=True)
 IMG_SIZE = 224

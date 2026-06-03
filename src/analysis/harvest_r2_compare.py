@@ -7,7 +7,7 @@ import json, os
 import pandas as pd
 import numpy as np
 
-BASE = os.path.expanduser("${PROJECT_ROOT}")
+BASE = os.environ.get("PROJECT_ROOT", ".")
 CLIP = {
  "cogeo":    f"{BASE}/runs/T3_scaleup/run4/eval/rank_cogeo_per_pair.csv",
  "pgd_bare": f"{BASE}/runs/T3_scaleup/run4/eval/rank_pgd_bare_per_pair.csv",

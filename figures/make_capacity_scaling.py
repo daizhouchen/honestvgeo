@@ -9,7 +9,7 @@ Clean, corpus-controlled law (the load-bearing claim):
       ViT-B/32 (88M)  18.07  ->  ViT-L/14 (304M) 5.18  ->  ViT-H/14 (632M) 4.61
   Spearman rho = -1.0 over the controlled triple (~4x contraction).
 Second axis (pretraining corpus/quality): holding capacity at ViT-L/14, moving
-from OpenAI-WIT-400M to LAION-2B drops rank-lift 15.71 -> 5.18 (-74%). So both
+from OpenAI-WIT-400M to LAION-2B drops rank-lift 15.71 -> 5.18 (-67%). So both
 larger capacity and a larger/cleaner pretraining corpus compress the band.
 
 Image-tower parameter counts are published model-card values (approximate); the
@@ -87,7 +87,7 @@ rho_all, p_all = spearmanr(allp, allrl)
 
 # ---------------- figure (compact single-column) ----------------
 # Single-column standalone figure (formerly one panel of the external-validity
-# float). The corpus-effect detail (-74% at fixed ViT-L/14) is stated in the
+# float). The corpus-effect detail (-67% at fixed ViT-L/14) is stated in the
 # caption rather than drawn, keeping the small panel uncluttered.
 fig, ax = plt.subplots(figsize=(3.5, 2.7))
 
@@ -122,7 +122,7 @@ for (n, p, c, rl) in BACKBONES:
                 ha=lha, va=lva)
 
 # corpus effect at fixed ViT-L/14 (304M): draw the OpenAI-WIT400M -> LAION-2B drop
-# as a vertical two-headed arrow between the two 304M points (15.71 -> 5.18, -74%).
+# as a vertical two-headed arrow between the two 304M points (15.71 -> 5.18, -67%).
 x_L = 304
 ax.annotate("", xy=(x_L, rl_laion_L), xytext=(x_L, rl_openai_L),
             arrowprops=dict(arrowstyle="<->", color="#9B5F5C", lw=1.1,

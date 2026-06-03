@@ -12,7 +12,7 @@ Writes runs/ae_s2_ens2/r5_scaling_law.json.
 import json, os
 import numpy as np, pandas as pd
 
-R = "${PROJECT_ROOT}"
+R = os.environ.get("PROJECT_ROOT", ".")
 HELDOUT = ["laion2b", "vith14", "vitb32", "siglip"]
 
 # (n_sources, dir, filename template). n=1 uses single-encoder 'ens_mean' naming; n>=2 use 'aeens'.

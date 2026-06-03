@@ -13,7 +13,7 @@ uniform), all far below the same ceiling; a training-free detector flags every
 family at AUROC 0.99-1.00.
 
 All numbers are hardcoded to match the manuscript exactly:
-  transfer    AE 3.29/4.80/5.85/8.60 (pooled 5.64); BLIP 7.52; MaxSim<=1.5; BLIP-2 ~0
+  transfer    AE 3.29/4.80/5.85/8.60 (pooled 5.64); BLIP 7.52; MaxSim<=1.6; BLIP-2 ~0
   purify(e=4) 8.50->1.98 (-77%); cohort-oracle ->1.18; adaptive 5.15->4.77
   CAB(e=16)   uniform 15.6 vs adaptive 13.0; ceiling 18.47
 
@@ -69,7 +69,7 @@ axa.plot([ae_lo, ae_hi], [ya[0], ya[0]], color=SAGE[1], linewidth=4.0,
 axa.scatter([ae_pool], [ya[0]], s=55, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
 axa.text(ae_hi + 0.5, ya[0], "3.3$-$8.6", va="center", fontsize=6.6, color="#444")
 # single-value probes
-probes = [(ya[1], 7.52, "7.52"), (ya[2], 1.0, "$\\leq$1.5"), (ya[3], 0.0, "$\\approx$0")]
+probes = [(ya[1], 7.52, "7.52"), (ya[2], 1.59, "$\\leq$1.6"), (ya[3], 0.0, "$\\approx$0")]
 for y, v, lab in probes:
     axa.scatter([v], [y], s=52, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
     axa.text(v + 0.6, y, lab, va="center", fontsize=6.6, color="#444")
