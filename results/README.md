@@ -1,9 +1,25 @@
 # results/ — reference result tables
 
 Measured outputs grouped by the paper's structure. Each experiment folder holds its
-`*_summary.json` (aggregate metrics); per-pair rank-lift CSVs live under
-`five_family/L7_5way/`. `esci_full_aggregate.json` is the per-cohort aggregate that
-the composite figure consumes.
+`*_summary.json` (aggregate metrics). **Per-pair rank-lift CSVs** (`rank_*_per_pair.csv`,
+one row per held-out (query, product) pair, columns
+`example_id,query_id,query,product_id,product_title,esci_label,sim_orig,sim_adv,delta_held_out,rank_orig,rank_adv,rank_lift`)
+are shipped for every group whose claim rests on a *paired* test, so reviewers can
+recompute the Wilcoxon / bootstrap statistics directly:
+
+- `white_box_4way/n3_eval/` — the headline 4-way (n=500)
+- `five_family/L7_5way/` — five white-box families
+- `scale_up/` — the 1,430-pair scale-up (`T3_scaleup` CoGEO/PGD-bare, `B2_full4method/eps16_1430` AdvCLIP/Co-Attack)
+- `backbones/E4_food101_eps16/eval/` — the Food-101 cross-dataset 4-way
+- `transfer/{ae_s2_ens2,ae_v2_ens,ae_v3_ens4,ae_transfer_s1}/` — AE-CoGEO consensus, source-count scaling, and the title-vs-consensus baseline
+- `ablations/{n3_sanity,n3_sanity_L14}/no_op_per_pair.csv` — the no-op admissibility gate
+
+`esci_full_aggregate.json` is the per-cohort aggregate that the composite figure consumes.
+
+> The Gaussian-noise directional control (manuscript **C3**, SSIM 0.854 / ≈0 rank-lift)
+> is a pixel-domain run outside this evaluation harness and is **not bundled** here; its
+> SSIM is deterministic and reproducible from a standard `sigma=eps/2.58`, seed-fixed
+> noise draw over the 491-image manifest at 224×224.
 
 | Folder | Experiments | Paper location |
 |---|---|---|
@@ -13,6 +29,6 @@ the composite figure consumes.
 | `scale_up/` | 1,430-pair scale-up (`T3_scaleup`) and the four-method 1,430 set (`B2_full4method`) | `fig:bounded` (c), §summary |
 | `defense/` | input purification (`R4_purify`), detector-gated purification (`R5_gated`, `R5_gated_eps16`), matched adaptive attacker (`P0_adaptive`), cohort-adaptive-budget (`B4_cab`) | `fig:bounded` (b), §summary |
 | `five_family/` | five white-box families incl. diffusion-prior — per-pair rank-lift CSVs (`L7_5way/rank_*_per_pair.csv`) and `L7_diffprior_eps16` | `tab:statsextra`, `fig:distribution` |
-| `ablations/` | anchor×backbone robustness (`D_vlm`, 5 captioners × 6 backbones), gradient-free NES ceiling-check (`nes_ceiling`), no-op admissibility gate + Gaussian control (`n3_sanity`, `n3_sanity_L14`) | `fig:anchorbb`, limitations (NES), method §no-op gate |
+| `ablations/` | anchor×backbone robustness (`D_vlm`, 5 captioners × 6 backbones), gradient-free NES ceiling-check (`nes_ceiling`), no-op admissibility gate (`n3_sanity` ViT-B/32 gap 0.0405 fails, `n3_sanity_L14` ViT-L/14 gap 0.0533 passes) | `fig:anchorbb`, limitations (NES), method §no-op gate |
 
 All values trace to these files; `figures/make_*.py` read them to regenerate every plot.

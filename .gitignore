@@ -1,3 +1,8 @@
 *.pyc
 __pycache__/
 .DS_Store
+
+# figures/ holds generators only; rendered outputs are regenerable
+figures/*.pdf
+figures/*.png
+figures/fig_*_summary.json
