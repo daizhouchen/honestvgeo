@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# NOTE: this script reproduces the released headline configuration, which runs
+# CoGEO WITHOUT the environment-simulation layer (no --use-envsim). To exercise
+# env-sim (the AE-CoGEO transfer-arm component), pass --use-envsim and put
+# src/method on the import path (e.g. PYTHONPATH="$SRC_ROOT/method"), since
+# envsim.py / diffjpeg_lite.py live under method/.
 SRC_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"  # repo src/ root
 # run_4way.sh — orchestrate cogeo + pgd_bare + advclip + coattack + 4 evals
 # for one (manifest, img_dir, clip_backbone, eps, image_size, run_root, gpu)

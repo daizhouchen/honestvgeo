@@ -7,7 +7,12 @@ bundled; the product **images** are public (Amazon ESCI) and are not included �
 | File | Set |
 |---|---|
 | `esci500_manifest.csv` | headline set: **491 images / 500 paired triples** (125 per cohort), balanced across the four ESCI relevance classes |
-| `esci1500_manifest.csv` | the **1,430-pair** scale-up (3× larger, label-balanced) |
+| `esci1500_manifest.csv` | the **1,430-pair** scale-up (3× larger, near label-balanced: E/S/I=375, C=305 after image-fetch attrition) |
+
+> **Provenance note.** In `esci500_manifest.csv`, two Complement (query, product) pairs
+> appear twice (ASINs `B078KSHVCS`, `B073XS3CHW` carry multi-locale title variants sharing
+> one `(query_id, product_id)` key), so the 500-row set covers 498 distinct pairs. All
+> published numbers are computed over the released 500-row set as-is.
 
 ## Columns
 

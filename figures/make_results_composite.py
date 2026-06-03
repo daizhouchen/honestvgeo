@@ -179,16 +179,15 @@ PARETO = [
 # AdvCLIP (5.06) and Co-Attack (12.82) have near-identical rank-lift; equal-size markers
 # would collide at true x, so the two are nudged apart on x purely for legibility
 # (exact values are in Table II). All four points share one consistent filled style.
-PLOTX = {"AdvCLIP": 7.1, "Co-Attack": 5.1}
 for name, lift, ssim, col, mk in PARETO:
-    axc.scatter(PLOTX.get(name, lift), ssim, s=78, color=col, marker=mk,
+    axc.scatter(lift, ssim, s=78, color=col, marker=mk,
                 edgecolor="#333", linewidth=0.6, zorder=3)
 # uniform direct labels, each with a clear gap from its marker (no leader lines, no open markers)
 for name, lx, ly, ha in [
     ("CoGEO",    15.71, 0.695, "center"),
-    ("PGD-bare", 13.7,  0.762, "left"),
-    ("AdvCLIP",   7.1,  0.83,  "center"),
-    ("Co-Attack", 5.1,  0.70,  "center"),
+    ("PGD-bare", 14.2,  0.790, "left"),
+    ("AdvCLIP",   5.06, 0.815, "center"),
+    ("Co-Attack", 12.3,  0.715, "right"),
 ]:
     axc.annotate(name, xy=(lx, ly), fontsize=7, color="#222", ha=ha, va="center")
 # label parked at the right end above the line, clear of the upper-left Gaussian-control cluster

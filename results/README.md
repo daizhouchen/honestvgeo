@@ -16,6 +16,12 @@ recompute the Wilcoxon / bootstrap statistics directly:
 
 `esci_full_aggregate.json` is the per-cohort aggregate that the composite figure consumes.
 
+> **Recompute notes.** (1) A few `example_id`s repeat inside the per-pair CSVs (2 rows in
+> the n=500 sets, 3 in the 1,430 set -- see `manifests/README.md`); pair files positionally
+> (both are sorted identically) or `drop_duplicates` before a key-merge, otherwise an
+> `example_id` join inflates n to 504/1448. (2) `i_label_top3_promotion_rate_*` uses ALL
+> pairs as the denominator (baseline 10.2% = 51/500), not the 125-row Irrelevant cohort.
+
 > The Gaussian-noise directional control (manuscript **C3**, SSIM 0.854 / ≈0 rank-lift)
 > is a pixel-domain run outside this evaluation harness and is **not bundled** here; its
 > SSIM is deterministic and reproducible from a standard `sigma=eps/2.58`, seed-fixed

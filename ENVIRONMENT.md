@@ -11,7 +11,7 @@ Software and hardware the experiments were run under.
 
 ## Hardware
 
-- Single NVIDIA RTX 4090 (48 GB) is sufficient for every experiment.
+- Single NVIDIA RTX 4090 (24 GB) is sufficient for every experiment.
 - Approximate first-run weight footprint ~17 GB (CLIP ViT-B/32 ~150 MB; a
   VLM captioner such as Qwen2.5-VL-7B / InternVL3-8B ~16 GB for the
   captioner-anchor ablation). CLIP-family / BLIP / SigLIP / EVA-02 weights are

@@ -116,7 +116,7 @@ def main(argv=None):
             w_stat, w_p = None, None
             print(f"wilcoxon {a}>{b} failed: {e}")
         boot_means = np.array([
-            np.random.choice(diff, size=len(diff), replace=True).mean()
+            rng.choice(diff, size=len(diff), replace=True).mean()
             for _ in range(args.bootstrap_iters)
         ])
         ci_lo, ci_hi = np.percentile(boot_means, [2.5, 97.5])

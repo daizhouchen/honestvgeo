@@ -69,10 +69,11 @@ axa.plot([ae_lo, ae_hi], [ya[0], ya[0]], color=SAGE[1], linewidth=4.0,
 axa.scatter([ae_pool], [ya[0]], s=55, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
 axa.text(ae_hi + 0.5, ya[0], "3.3$-$8.6", va="center", fontsize=6.6, color="#444")
 # single-value probes
-probes = [(ya[1], 7.52, "7.52"), (ya[2], 1.59, "$\\leq$1.6"), (ya[3], 0.0, "$\\approx$0")]
+probes = [(ya[1], 7.52, "7.52"), (ya[2], 1.59, "$\\leq$1.6"), (ya[3], -13.48, "$-13.5$ (negative)")]
 for y, v, lab in probes:
     axa.scatter([v], [y], s=52, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
     axa.text(v + 0.6, y, lab, va="center", fontsize=6.6, color="#444")
+axa.axvline(0, color="#999999", linewidth=0.6, zorder=1)
 # ceiling
 axa.axvline(CEIL, color="#8A6A6A", linewidth=1.2, linestyle="--", zorder=2)
 axa.text(CEIL - 0.4, ya[-1] - 0.62, f"white-box ceiling {CEIL:.2f}",
@@ -81,11 +82,11 @@ axa.text(CEIL - 0.4, ya[-1] - 0.62, f"white-box ceiling {CEIL:.2f}",
 axa.axvspan(0, ae_hi, color=SAGE[0], alpha=0.35, zorder=0)
 axa.set_yticks(ya)
 axa.set_yticklabels(labels_a, fontsize=6.8)
-axa.set_xlim(-0.5, 20.0)
+axa.set_xlim(-15.5, 20.0)
 axa.set_ylim(-1.0, len(labels_a) - 0.4)
 axa.set_xlabel("Mean transfer rank-lift")
 axa.grid(axis="x", linestyle=":", alpha=0.4)
-axa.set_title("(a) Transfer below ceiling ($n{=}498$)", fontsize=9.0)
+axa.set_title("(a) Transfer below ceiling", fontsize=9.0)
 
 # ============================ (b) layered defense ============================
 # before -> after dumbbells (rank-lift)
@@ -150,7 +151,7 @@ axc.set_ylabel("Mean rank-lift")
 axc.set_ylim(0, 80)
 axc.grid(axis="both", linestyle=":", alpha=0.4)
 axc.legend(loc="upper left", fontsize=6.6, handlelength=1.3, borderaxespad=0.3)
-axc.text(0.97, 0.06, "overall $+7.89$ (95% CI $[2.0,13.6]$)",
+axc.text(0.97, 0.06, "overall $+7.98$ (95% CI $[1.9,14.2]$)",
          transform=axc.transAxes, ha="right", va="bottom", fontsize=6.2,
          color="#5C3A3A", style="italic")
 axc.set_title("(c) Scale-up (1,430 pairs)", fontsize=9.0)
