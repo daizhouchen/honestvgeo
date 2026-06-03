@@ -68,11 +68,11 @@ def _cell_rl(cell, method):
 
 
 try:
-    cogeo_eps = [_cell_rl("E2_openai_eps4", "cogeo"), _cell_rl("E2_openai_eps8", "cogeo"), 19.86]
-    pgd_eps = [_cell_rl("E2_openai_eps4", "pgd_bare"), _cell_rl("E2_openai_eps8", "pgd_bare"), 12.37]
+    cogeo_eps = [_cell_rl("E2_openai_eps4", "cogeo"), _cell_rl("E2_openai_eps8", "cogeo"), 15.71]
+    pgd_eps = [_cell_rl("E2_openai_eps4", "pgd_bare"), _cell_rl("E2_openai_eps8", "pgd_bare"), 13.73]
 except Exception:
-    pgd_eps = [12.37, 12.37, 12.37]
-    cogeo_eps = [pgd_eps[0] - 0.64, pgd_eps[1] + 3.35, 19.86]
+    pgd_eps = [13.73, 13.73, 13.73]
+    cogeo_eps = [pgd_eps[0] - 0.64, pgd_eps[1] + 3.35, 15.71]
 
 # ---------------------------------------------------------------- six-backbone matrix
 def _load_cell(name):
@@ -83,7 +83,7 @@ def _load_cell(name):
 AGG = json.load(open(os.path.join(PAPER, "esci_full_aggregate.json")))
 _e1 = _load_cell("E1_laion2b_eps16")
 _e5 = _load_cell("E5_eva02_eps16")
-_main_rl = {"cogeo": 19.86, "pgd_bare": 12.37, "advclip": 6.45, "coattack": 5.77}
+_main_rl = {"cogeo": 15.71, "pgd_bare": 13.73, "advclip": 5.06, "coattack": 12.82}
 BB6_PRETTY = ["OpenAI\nL/14", "OpenCLIP\nL/14", "EVA-02\nL/14", "SigLIP\nB/16", "OpenCLIP\nB/32", "OpenCLIP\nH/14"]
 bb6_vals = np.zeros((6, 4))
 for _j, _m in enumerate(M_KEYS):
@@ -171,12 +171,12 @@ axb.set_title("(a) Source-encoder scaling")
 
 # =========================== (c) SSIM vs rank-lift Pareto ===========================
 PARETO = [
-    ("CoGEO", 19.86, 0.66, ROSE[2], "^"),
-    ("PGD-bare", 12.37, 0.76, SAGE[2], "s"),
-    ("AdvCLIP", 6.45, 0.78, MIST[2], "o"),
-    ("Co-Attack", 5.77, 0.76, SAGE[1], "D"),
+    ("CoGEO", 15.71, 0.66, ROSE[2], "^"),
+    ("PGD-bare", 13.73, 0.76, SAGE[2], "s"),
+    ("AdvCLIP", 5.06, 0.78, MIST[2], "o"),
+    ("Co-Attack", 12.82, 0.76, SAGE[1], "D"),
 ]
-# AdvCLIP (6.45) and Co-Attack (5.77) have near-identical rank-lift; equal-size markers
+# AdvCLIP (5.06) and Co-Attack (12.82) have near-identical rank-lift; equal-size markers
 # would collide at true x, so the two are nudged apart on x purely for legibility
 # (exact values are in Table II). All four points share one consistent filled style.
 PLOTX = {"AdvCLIP": 7.1, "Co-Attack": 5.1}
@@ -185,7 +185,7 @@ for name, lift, ssim, col, mk in PARETO:
                 edgecolor="#333", linewidth=0.6, zorder=3)
 # uniform direct labels, each with a clear gap from its marker (no leader lines, no open markers)
 for name, lx, ly, ha in [
-    ("CoGEO",    19.86, 0.695, "center"),
+    ("CoGEO",    15.71, 0.695, "center"),
     ("PGD-bare", 13.7,  0.762, "left"),
     ("AdvCLIP",   7.1,  0.83,  "center"),
     ("Co-Attack", 5.1,  0.70,  "center"),

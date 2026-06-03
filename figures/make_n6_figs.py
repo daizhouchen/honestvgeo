@@ -55,7 +55,7 @@ def get_rl(cell, method):
 
 # ============================================================
 # Figure 1: per-backbone bars (3 backbones x 4 methods)
-# OpenAI numbers from main result (Table 1): 19.86 / 12.37 / 6.45 / 5.77
+# OpenAI numbers from main result (Table 1): 15.71 / 13.73 / 5.06 / 12.82
 # ============================================================
 e1 = load_cell("E1_laion2b_eps16")
 e5 = load_cell("E5_eva02_eps16")
@@ -64,7 +64,7 @@ backbones = ["OpenAI ViT-L/14", "OpenCLIP laion2b\nViT-L/14", "EVA-02\nViT-L/14"
 methods = ["CoGEO", "PGD-bare", "AdvCLIP", "Co-Attack"]
 mkeys = ["cogeo", "pgd_bare", "advclip", "coattack"]
 # OpenAI 16/255 main numbers from prior recorded main experiment
-main_open = {"cogeo": 19.86, "pgd_bare": 12.37, "advclip": 6.45, "coattack": 5.77}
+main_open = {"cogeo": 15.71, "pgd_bare": 13.73, "advclip": 5.06, "coattack": 12.82}
 laion = {k: get_rl(e1, k) for k in mkeys}
 eva = {k: get_rl(e5, k) for k in mkeys}
 
@@ -120,8 +120,8 @@ plt.close(fig)
 e2_4 = load_cell("E2_openai_eps4")
 e2_8 = load_cell("E2_openai_eps8")
 eps = [4, 8, 16]
-cogeo_y = [get_rl(e2_4, "cogeo"), get_rl(e2_8, "cogeo"), 19.86]
-pgd_y = [get_rl(e2_4, "pgd_bare"), get_rl(e2_8, "pgd_bare"), 12.37]
+cogeo_y = [get_rl(e2_4, "cogeo"), get_rl(e2_8, "cogeo"), 15.71]
+pgd_y = [get_rl(e2_4, "pgd_bare"), get_rl(e2_8, "pgd_bare"), 13.73]
 
 fig, ax = plt.subplots(figsize=(5.2, 3.4))
 ax.plot(eps, cogeo_y, "o-", color=ROSE[2], linewidth=1.8, markersize=7, label="CoGEO")

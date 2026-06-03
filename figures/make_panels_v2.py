@@ -61,10 +61,10 @@ METHODS_5 = ["CoGEO", "PGD-bare", "AdvCLIP", "Co-Attack"]
 COLORS_5 = [ROSE[2], SAGE[2], MIST[2], SAGE[1]]
 VALS_5 = np.array(
     [
-        [3.90, 5.24, 36.77, 25.43],  # CoGEO  E,S,C,I
-        [7.12, 1.84, 18.86, 18.53],  # PGD-bare
+        [3.90, 5.24, 28.26, 25.43],  # CoGEO  E,S,C,I
+        [7.12, 1.84, 27.43, 18.53],  # PGD-bare
         [1.00, 0.94, 14.46, 5.53],   # AdvCLIP
-        [6.18, 5.47, -1.86, 16.94],  # Co-Attack
+        [6.18, 5.47, 22.69, 16.94],  # Co-Attack
     ]
 )
 
@@ -177,7 +177,7 @@ def load_remote_cell(name):
 e1 = load_remote_cell("E1_laion2b_eps16")  # OpenCLIP laion2b L/14
 e5 = load_remote_cell("E5_eva02_eps16")     # EVA-02 L/14
 # OpenAI ViT-L/14 main: numbers from the main 4-way table (Section 4).
-main_open_rl = {"cogeo": 19.86, "pgd_bare": 12.37, "advclip": 6.45, "coattack": 5.77}
+main_open_rl = {"cogeo": 15.71, "pgd_bare": 13.73, "advclip": 5.06, "coattack": 12.82}
 
 bb6_keys = ["openai_main", "laion2b_e1", "eva02_e5", "siglip", "vitb32", "vith14"]
 bb6_pretty = [
