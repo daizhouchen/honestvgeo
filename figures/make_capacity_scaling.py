@@ -106,9 +106,9 @@ corpus_style = {
 LABEL_POS = {
     "OpenCLIP-B/32": (95, 19.7, "left", "bottom"),
     "SigLIP-B/16": (99, 10.5, "left", "bottom"),
-    "OpenAI-L/14": (300, 21.3, "center", "bottom"),
+    "OpenAI-L/14": (300, 17.0, "center", "bottom"),
     "EVA-02-L/14": (345, 9.6, "left", "center"),
-    "OpenCLIP-L/14": (345, 3.7, "left", "top"),
+    "OpenCLIP-L/14": (318, 3.7, "left", "top"),
     "OpenCLIP-H/14": (632, 6.4, "center", "bottom"),
 }
 seen = set()
@@ -127,8 +127,8 @@ x_L = 304
 ax.annotate("", xy=(x_L, rl_laion_L), xytext=(x_L, rl_openai_L),
             arrowprops=dict(arrowstyle="<->", color="#9B5F5C", lw=1.1,
                             shrinkA=3, shrinkB=3))
-ax.text(x_L * 1.12, (rl_openai_L + rl_laion_L) / 2,
-        f"$-{corpus_drop*100:.0f}\\%$\n(fixed ViT-L/14)", fontsize=5.4,
+ax.text(x_L * 1.12, (rl_openai_L + rl_laion_L) / 2 + 1.2,
+        f"$-{corpus_drop*100:.0f}\\%$ (fixed ViT-L/14)", fontsize=5.4,
         color="#9B5F5C", ha="left", va="center", style="italic")
 
 ax.set_xscale("log")

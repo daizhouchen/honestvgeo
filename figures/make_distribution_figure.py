@@ -131,10 +131,12 @@ def main():
     # label sits high-centre; a clear horizontal-ish stem runs from just below the
     # label rightward to the tip of the CoGEO right tail, landing just ABOVE the
     # ridge outline (~4.15) so the head never sits inside the red fill.
+    # set-level annotation (gmax=390 is PGD-bare's max, not CoGEO's 354), so it is
+    # drawn in neutral grey rather than any single family's colour.
     axA.text(XHI - 19, 5.55, "heavy right tail\n(max $\\approx$ {:.0f})".format(gmax),
-             fontsize=6.0, color=C_COGEO, ha="center", va="top", zorder=260)
+             fontsize=6.0, color="#5b5b5b", ha="center", va="top", zorder=260)
     axA.annotate("", xy=(XHI - 0.5, 4.18), xytext=(XHI - 17, 4.78),
-                 arrowprops=dict(arrowstyle="->", color=C_COGEO, lw=0.9,
+                 arrowprops=dict(arrowstyle="->", color="#5b5b5b", lw=0.9,
                                  shrinkA=1, shrinkB=1,
                                  connectionstyle="arc3,rad=0.0"), zorder=260)
     axA.set_xlim(XLO, XHI)
