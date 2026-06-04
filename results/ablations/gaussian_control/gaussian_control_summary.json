@@ -1,0 +1,31 @@
+{
+  "n_unique_asins_processed": 491,
+  "input_size": 224,
+  "eps_l_inf_unit": 0.06274509803921569,
+  "eps_l_inf_pixel": 16.0,
+  "num_replicates_per_asin": 3,
+  "seed": 20260512,
+  "l_inf": {
+    "mean": 0.0627451229231016,
+    "median": 0.0627451241016388,
+    "p05": 0.06274511913458507,
+    "p95": 0.0627451241016388
+  },
+  "l2_rms": {
+    "mean": 0.02079203669348503,
+    "median": 0.020691359415650368
+  },
+  "ssim_at_224": {
+    "mean": 0.8537593337981835,
+    "median": 0.855902353922526,
+    "p05": 0.7848271429538726,
+    "p95": 0.9203234513600667
+  },
+  "comparison_at_224_eps16_255": {
+    "advclip_ssim": 0.78,
+    "pgd_bare_ssim": 0.76,
+    "coattack_ssim": 0.76,
+    "cogeo_ssim": 0.66,
+    "gaussian_ssim": 0.8537593337981835
+  }
+}
