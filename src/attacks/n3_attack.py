@@ -4,7 +4,7 @@
 Produces x_p* per ASIN from the ESCI manifest under one of:
 
   --method cogeo     -- product-title anchor + Sobel mask + MI-FGSM PGD with
-                        env-sim (DIM/SIM/TIM/DiffJPEG). Reuses the existing
+                        env-sim (DIM/TIM/DiffJPEG). Reuses the existing
                         envsim.py + diffjpeg_lite.py from the remote
                         ``code/`` tree. v_anchor = CLIP_text(product_title);
                         the eval-time ESCI query is NEVER consulted.
@@ -232,7 +232,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--max-images", type=int, default=None, help="Optional cap on #images for smoke test")
     p.add_argument("--use-envsim", action="store_true",
-                   help="(cogeo only) try to import remote envsim.py for DIM/SIM/TIM/DiffJPEG")
+                   help="(cogeo only) try to import remote envsim.py for DIM/TIM/DiffJPEG")
     p.add_argument("--log-level", default="INFO")
     args = p.parse_args(argv)
 

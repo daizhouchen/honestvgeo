@@ -1,7 +1,8 @@
 """envsim — Environment simulation for CoGEO Phase 3.
 
-Implements DIM, SIM, TIM, DiffJPEG with stochastic apply-probability=0.5 each,
-matching paper §4.3.
+Implements DIM, TIM, DiffJPEG with stochastic apply-probability=0.5 each,
+matching the transfer-arm env-sim layer in the paper (scale-invariant
+gradient averaging is not applied).
 """
 from __future__ import annotations
 
@@ -48,10 +49,10 @@ def _tim_smooth(x: torch.Tensor, k: int = 7, sigma: float = 1.5) -> torch.Tensor
 
 
 class EnvSim(nn.Module):
-    """Stochastic environment simulation: DIM + Resize + DiffJPEG. SIM is handled in cogeo.py
-    as multi-scale gradient averaging (it's a gradient-side trick, not a forward perturbation).
-
-    Each transform applies independently with probability `p`.
+    """Stochastic environment simulation: DIM (input diversity) + TIM
+    (translation-invariant smoothing) + DiffJPEG, each applied independently
+    with probability `p`. Scale-invariant (SIM) gradient averaging is not part
+    of this layer.
     """
 
     def __init__(self, p: float = 0.5, jpeg_quality: int = 85, tim_k: int = 7,
