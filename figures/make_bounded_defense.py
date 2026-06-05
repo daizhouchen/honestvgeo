@@ -67,12 +67,12 @@ ae_lo, ae_hi, ae_pool = 3.29, 8.60, 5.64
 axa.plot([ae_lo, ae_hi], [ya[0], ya[0]], color=SAGE[1], linewidth=4.0,
          solid_capstyle="round", alpha=0.55, zorder=1)
 axa.scatter([ae_pool], [ya[0]], s=55, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
-axa.text(ae_hi + 0.5, ya[0], "3.3$-$8.6", va="center", fontsize=6.6, color="#444")
+axa.text(ae_hi + 0.9, ya[0], "3.3$-$8.6", va="center", fontsize=6.6, color="#444")
 # single-value probes
 probes = [(ya[1], 7.52, "7.52"), (ya[2], 1.59, "$\\leq$1.6"), (ya[3], -13.48, "$-13.5$ (negative)")]
 for y, v, lab in probes:
     axa.scatter([v], [y], s=52, color=ROSE[2], edgecolor="#333", linewidth=0.5, zorder=3)
-    axa.text(v + 0.6, y, lab, va="center", fontsize=6.6, color="#444")
+    axa.text(v + 1.1, y, lab, va="center", fontsize=6.6, color="#444")
 axa.axvline(0, color="#999999", linewidth=0.6, zorder=1)
 # ceiling
 axa.axvline(CEIL, color="#8A6A6A", linewidth=1.2, linestyle="--", zorder=2)
