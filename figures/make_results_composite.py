@@ -135,7 +135,7 @@ for j in range(len(ENC)):
 # the right edge with a "->" so the panel stays narrow without losing the reference.
 axa.annotate(f"white-box ceiling {WHITEBOX_CEILING:.2f} $\\rightarrow$",
              xy=(11.7, -0.62), ha="right", va="center",
-             fontsize=6.5, color="#5C3A3A", style="italic")
+             fontsize=5.8, color="#5C3A3A", style="italic")
 # compact legend in the empty upper-right band (data tops out near x=8.6 on the lower rows)
 from matplotlib.lines import Line2D
 axa.legend(handles=[
@@ -199,7 +199,7 @@ axc.annotate("Gaussian\n(control)", xy=(0.7, 0.854), xytext=(3.0, 0.895),
 # resolution C3 note: same attack at the 800^2 input is stealthier but loses the lift
 # (placed in the empty upper-right region so it never overlaps the CoGEO point)
 axc.text(13.2, 0.93, "800$^2$ input: SSIM$\\geq$0.98\nbut lift$\\to-0.56$ (C3)",
-         fontsize=6.5, color="#5C3A3A", style="italic", ha="left", va="top")
+         fontsize=5.7, color="#5C3A3A", style="italic", ha="left", va="top")
 axc.set_xlabel("Mean rank-lift")
 axc.set_ylabel("SSIM at $224{\\times}224$")
 axc.set_xlim(0, 22.5)
@@ -254,7 +254,7 @@ gbars = axg.bar(xg, F_VALS, width=0.66, color=F_COLORS, edgecolor="#333", linewi
 for b, v in zip(gbars, F_VALS):
     axg.text(b.get_x() + b.get_width() / 2, v + 2.2, f"{v:.0f}", ha="center", fontsize=6.4, color="#2B2B2B")
 axg.set_xticks(xg)
-axg.set_xticklabels(F_METHODS, fontsize=6.2, rotation=28, ha="right")
+axg.set_xticklabels(F_METHODS, fontsize=5.7, rotation=28, ha="right")
 axg.set_ylabel("Mean rank-lift")
 axg.set_ylim(0, max(F_VALS) * 1.28)
 axg.grid(axis="y", linestyle=":", alpha=0.4)
