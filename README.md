@@ -1,10 +1,16 @@
-# HonestEval — reproduction artifact
+# HonestVGEO: Recalibrating Visual GEO
 
 Code, manifests, and result tables for **"Recalibrating Visual GEO:
-Anchor-Decoupled Evaluation and a Transfer Probe"** (ICDM 2026 submission).
+Anchor-Decoupled Evaluation and a Transfer Probe"**, accepted at **ICDM 2026**.
 
-> Reproduction artifact only — the manuscript is submitted through the conference
-> system, not here. Anonymized for triple-blind review. Datasets (Amazon ESCI,
+**Zhouchen Dai** | Beijing Institute of Technology
+
+HonestVGEO is the project repository for **HonestEval**, the anchor-decoupled
+evaluation protocol, and the reference implementations of **CoGEO** (white-box)
+and **AE-CoGEO** (cross-encoder transfer).
+
+> Public reproduction artifact; the camera-ready manuscript is being finalized.
+> Datasets (Amazon ESCI,
 > Food-101) and model weights (CLIP/OpenCLIP/EVA-02/SigLIP, BLIP/BLIP-2, VLM
 > captioners) are public and fetched on demand; they are not bundled. Paths use
 > the placeholders `${PROJECT_ROOT}` / `${CONDA_BASE}` / `${HOME}`.
@@ -97,4 +103,6 @@ figures and tables cannot drift.
 
 ## Status
 
-Private during peer review (triple-blind); to be opened at camera-ready.
+Accepted at ICDM 2026. The reproduction artifact is public, and the camera-ready
+manuscript is being finalized. The repository address remains
+[`daizhouchen/honestvgeo`](https://github.com/daizhouchen/honestvgeo).
