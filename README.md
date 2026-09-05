@@ -104,5 +104,5 @@ figures and tables cannot drift.
 ## Status
 
 Accepted at ICDM 2026. The reproduction artifact is public, and the camera-ready
-manuscript is being finalized. The repository address remains
-[`daizhouchen/honestvgeo`](https://github.com/daizhouchen/honestvgeo).
+manuscript is being finalized. The canonical repository address is
+[`daizhouchen/HonestVGEO`](https://github.com/daizhouchen/HonestVGEO).
